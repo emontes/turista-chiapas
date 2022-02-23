@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 const privacy = () => {
   return (
     <Layout>
-      <section className="section-center cont-area">
+      <section className="section section-center cont-area">
         <h3>Aviso de Privacidad</h3>
         <p>
           En cumplimiento con lo establecido por la Ley Federal de Protección de

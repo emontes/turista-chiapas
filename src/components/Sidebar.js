@@ -3,7 +3,6 @@ import links from '../constants/links'
 import socialLinks from '../constants/social_links'
 import { Link } from 'gatsby'
 import { FaTimes } from 'react-icons/fa'
-import styled from 'styled-components'
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
@@ -40,18 +39,3 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 }
 
 export default Sidebar
-
-const Wrapper = styled.aside`
-  background: var(--clr-grey-10);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  display: grid;
-  place-items: center;
-  opacity: 0;
-  transition: var(--transition);
-  transform: translateX(-100%);
-`

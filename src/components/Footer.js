@@ -6,7 +6,6 @@ import { StaticImage } from 'gatsby-plugin-image'
 import socialLinks from '../constants/social_links'
 import destacadosChiapas from '../constants/footer_des_chiapas'
 import otrosDestinos from '../constants/footer_otros_destinos'
-import device from '../assets/themes/device'
 import { BiChevronRightCircle } from 'react-icons/bi'
 
 const Footer = ({ title = 'El Turista Chiapas' }) => {
@@ -38,34 +37,36 @@ const Footer = ({ title = 'El Turista Chiapas' }) => {
           </div>
         </div>
 
-        <div className="foot">
-          <h4>Destacados en Chiapas</h4>
-          <ul className="ftr-list">
-            {destacadosChiapas.map((link) => {
-              return (
-                <li key={link.id}>
-                  <Link to={link.url}>
-                    <BiChevronRightCircle /> {link.text}
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
+        <div className="enlaces">
+          <div className="foot">
+            <h4>Destacados en Chiapas</h4>
+            <ul className="ftr-list">
+              {destacadosChiapas.map((link) => {
+                return (
+                  <li key={link.id}>
+                    <Link to={link.url}>
+                      <BiChevronRightCircle /> {link.text}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
 
-        <div className="foot">
-          <h4>Otros Destinos</h4>
-          <ul className="ftr-list">
-            {otrosDestinos.map((link) => {
-              return (
-                <li key={link.id}>
-                  <a href={link.url}>
-                    <BiChevronRightCircle /> {link.text}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
+          <div className="foot">
+            <h4>Otros Destinos</h4>
+            <ul className="ftr-list">
+              {otrosDestinos.map((link) => {
+                return (
+                  <li key={link.id}>
+                    <a href={link.url}>
+                      <BiChevronRightCircle /> {link.text}
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
 
         <div className="foot">
@@ -108,7 +109,7 @@ const Wrapper = styled.footer`
   }
   h4 {
     color: var(--clr-grey-4);
-    text-align: center;
+
     text-transform: capitalize;
   }
   a {
@@ -120,7 +121,7 @@ const Wrapper = styled.footer`
   .social-links {
     margin-top: 0rem;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1rem;
   }
   .social-link {
@@ -141,12 +142,15 @@ const Wrapper = styled.footer`
   .footer-1 {
     padding: 6rem 3rem 3rem;
     display: flex;
-    flex-direction: column;
+
+    flex-wrap: wrap;
     gap: 1rem;
     justify-content: space-evenly;
-    @media screen and ${device.tablet} {
-      flex-direction: row;
-    }
+  }
+
+  .enlaces {
+    display: flex;
+    gap: 3rem;
   }
 
   .ftr-list {

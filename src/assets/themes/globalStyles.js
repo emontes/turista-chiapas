@@ -106,12 +106,13 @@ p {
 
 /* section */
 .section {
-  padding: 8rem 0;
+  border: 1px solid red;
+  padding: 8rem;
 }
 
 .section-center {
   width: 90vw;
-  margin: 0 auto;
+  margin: 0rem auto;
   max-width: 117rem;
 }
 
