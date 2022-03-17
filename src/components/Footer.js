@@ -24,10 +24,12 @@ const Footer = ({ title = 'El Turista Chiapas' }) => {
               )
             })}
           </ul>
-          <StaticImage
-            src="../assets/images/logosmal2.png"
-            alt="Turista Chiapas"
-          />
+          <a href="https://turista.com.mx">
+            <StaticImage
+              src="../assets/images/logosmal2.png"
+              alt="Turista Chiapas"
+            />
+          </a>
 
           <div className="privacy">
             &copy; {new Date().getFullYear()} {' | '}
@@ -108,12 +110,8 @@ const Wrapper = styled.footer`
     text-transform: capitalize;
   }
   h4 {
-    color: var(--clr-grey-4);
+    color: var(--clr-primary-2);
 
-    text-transform: capitalize;
-  }
-  a {
-    color: var(--clr-grey-5);
     text-transform: capitalize;
   }
 
@@ -134,10 +132,6 @@ const Wrapper = styled.footer`
   }
   .privacy {
     font-size: 1rem;
-
-    a {
-      color: var(--clr-primary-5);
-    }
   }
   .footer-1 {
     padding: 6rem 3rem 3rem;
@@ -169,5 +163,12 @@ const Wrapper = styled.footer`
     padding: 2.5rem 0;
     text-align: center;
     color: var(--clr-grey-5);
+    a {
+      color: var(--clr-grey-5);
+      text-transform: capitalize;
+      :hover {
+        color: var(--clr-primary-7);
+      }
+    }
   }
 `

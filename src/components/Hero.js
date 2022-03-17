@@ -62,8 +62,8 @@ const Wrapper = styled.header`
 
     background: linear-gradient(
       to bottom right,
-      rgba(84, 137, 82, 0.4),
-      rgba(199, 226, 222, 0.9)
+      rgba(199, 226, 222, 0.9),
+      rgba(84, 137, 82, 0.4)
     );
     border-radius: var(--borderRadius);
   }

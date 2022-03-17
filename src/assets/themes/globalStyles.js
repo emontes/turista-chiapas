@@ -98,6 +98,10 @@ ul {
 }
 a {
   text-decoration: none;
+  color: var(--clr-primary-5);
+  :hover {
+    color: var(--clr-primary-6);
+  }
 }
 p {
   margin-bottom: 1.4rem;
