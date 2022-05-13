@@ -28,6 +28,7 @@ const Footer = ({ title = 'El Turista Chiapas' }) => {
             <StaticImage
               src="../assets/images/logosmal2.png"
               alt="Turista Chiapas"
+              title="Turista Chiapas"
             />
           </a>
 

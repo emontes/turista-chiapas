@@ -5,23 +5,7 @@ require('dotenv').config({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [
-    'estado',
-    'location',
-    // {
-    //   name: `estado`,
-    //   api: { qs: { _locale: `all`, populate: `*` } },
-    // },
-    // {
-    //   name: `location`,
-    //   api: {
-    //     qs: {
-    //       _locale: `all`,
-    //       populate: `*`,
-    //     },
-    //   },
-    // },
-  ],
+  collectionTypes: ['estado', 'location', 'noticia', 'topic'],
   singleTypes: [],
 }
 

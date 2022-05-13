@@ -1,7 +1,7 @@
 import React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import Link from 'gatsby'
+import { Link } from 'gatsby'
 
 const Hero = ({ bgColor, image, main, sub, btnLink, btnText }) => {
   return (
