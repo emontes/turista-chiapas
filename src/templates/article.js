@@ -8,7 +8,6 @@ import { Link } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
 
 const Article = ({ data }) => {
-  console.log('  Data Article --->', data)
   const {
     title,
     datePlano,
@@ -57,11 +56,16 @@ const Article = ({ data }) => {
           )}
           {anyo < 2018 ? (
             <>
-              <div
-                dangerouslySetInnerHTML={{ __html: hometext.data.hometext }}
-              />
-
-              <p dangerouslySetInnerHTML={{ __html: bodytext.data.bodytext }} />
+              {hometext && (
+                <div
+                  dangerouslySetInnerHTML={{ __html: hometext.data.hometext }}
+                />
+              )}
+              {bodytext && (
+                <p
+                  dangerouslySetInnerHTML={{ __html: bodytext.data.bodytext }}
+                />
+              )}
             </>
           ) : (
             <>

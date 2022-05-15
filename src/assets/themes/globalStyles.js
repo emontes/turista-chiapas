@@ -7,7 +7,11 @@ const GlobalStyle = createGlobalStyle`
 Fonts
 ===============
 */
-@import url("http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic");
+
+/* Esto causa un error en producción */
+${
+  '' /* @import url("http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic"); */
+}
 
 /*
 =============== 

@@ -1,16 +1,5 @@
 const data = [
   {
-    id: 1,
-    text: 'home',
-    url: '/',
-  },
-  {
-    id: 2,
-    text: 'hoteles',
-    url: '/hoteles/',
-  },
-
-  {
     id: 3,
     text: 'Quintana Roo',
     url: 'https://quintanaroo.turista.com.mx',

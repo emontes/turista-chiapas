@@ -83,13 +83,14 @@ const Footer = ({ title = 'El Turista Chiapas' }) => {
       <h1>{title}</h1>
 
       <div className="footer-2">
+        <Link to="/">Home</Link> | <Link to="/hoteles">Hoteles</Link> |&nbsp;
         {LinksFooter2.map((link, i) => {
           const rowLen = LinksFooter2.length
           return (
             <span key={link.id}>
-              <Link key={link.id} to={link.url}>
+              <a key={link.id} href={link.url}>
                 {link.text}
-              </Link>
+              </a>
               {rowLen === i + 1 ? '' : ' | '}
             </span>
           )
