@@ -86,12 +86,12 @@ const Footer = ({ title = 'El Turista Chiapas' }) => {
         {LinksFooter2.map((link, i) => {
           const rowLen = LinksFooter2.length
           return (
-            <>
+            <span key={link.id}>
               <Link key={link.id} to={link.url}>
                 {link.text}
               </Link>
               {rowLen === i + 1 ? '' : ' | '}
-            </>
+            </span>
           )
         })}
       </div>

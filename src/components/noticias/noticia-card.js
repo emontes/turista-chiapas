@@ -11,19 +11,24 @@ const NoticiaCard = ({ noticia }) => {
   const anyo = fecha.getFullYear()
   const hometext = noticia.hometext.data.hometext
 
+  let imagen
+  if (noticia.image) {
+    imagen = noticia.image.localFile
+  } else {
+    imagen = topic.image.localFile
+  }
+
   return (
     <Wraper className="cont-area">
       <Link to={`/${noticia.dateslug}/${noticia.slug}`}>
         <h3>{noticia.title}</h3>
 
-        {topic.image && (
-          <GatsbyImage
-            image={getImage(topic.image.localFile)}
-            className="topic-image"
-            alt={topic.Title}
-            title={topic.Title}
-          />
-        )}
+        <GatsbyImage
+          image={getImage(imagen)}
+          className="topic-image"
+          alt={topic.Title}
+          title={topic.Title}
+        />
 
         {anyo < 2018 ? (
           <div dangerouslySetInnerHTML={{ __html: hometext }} />
@@ -46,13 +51,17 @@ const NoticiaCard = ({ noticia }) => {
 }
 
 const Wraper = styled.article`
+  position: relative;
+  border: 1px solid var(--clr-grey-9);
   margin-bottom: 1.5rem;
-  padding: 3rem;
+  padding: 2rem;
   box-shadow: var(--light-shadow);
   background-color: var(--clr-grey-10);
+  border-radius: var(--radius);
   transition: var(--transition);
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.3rem;
   }
 
   :hover {
@@ -104,6 +113,13 @@ export const query = graphql`
     date(formatString: "ddd D MMM yy", locale: "es")
     dateslug: date(formatString: "yy/M/D")
     datePlano: date
+    image {
+      localFile {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
     hometext {
       data {
         hometext

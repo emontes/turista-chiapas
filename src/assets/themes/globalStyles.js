@@ -28,7 +28,7 @@ Variables
  /* darkest grey - used for headings */
   --clr-grey-1: #12222a;
   --clr-grey-3: #15262f;
-  --clr-grey-4: hsl(209, 28%, 39%);
+  --clr-grey-4: hsl(117, 9%, 46%);
   /* grey used for paragraphs */
   --clr-grey-5: #999;
   --clr-grey-8: #b1b8b8;;

@@ -1,9 +1,9 @@
 const data = [
-  // {
-  //   id: 1,
-  //   text: 'home',
-  //   url: '/',
-  // },
+  {
+    id: 1,
+    text: 'home',
+    url: '/',
+  },
   {
     id: 2,
     text: 'hoteles',
@@ -24,11 +24,6 @@ const data = [
     id: 5,
     text: 'directorio',
     url: '/links/',
-  },
-  {
-    id: 6,
-    text: 'fotos',
-    url: '/fotos/',
   },
 ]
 
