@@ -6,6 +6,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { FaRegClock, FaPrint } from 'react-icons/fa'
 import { Link } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
+import Banner from '../components/Banner'
 
 const Article = ({ data }) => {
   const {
@@ -22,78 +23,78 @@ const Article = ({ data }) => {
   const anyo = fecha.getFullYear()
   return (
     <Layout>
-      <Wrapper className="cont-area">
-        <article>
-          <div className="post-info">
-            {location && <span className="category">{location.name}</span>}
+      <Wrapper className="section">
+        <div className="section-center">
+          <article className="cont-area">
+            <div className="post-info">
+              {location && <span className="category">{location.name}</span>}
 
-            <h1>{title}</h1>
+              <h1>{title}</h1>
 
-            <div className="date-box">
-              <span className="date">
-                <FaRegClock className="icon"></FaRegClock>
-                {date}
-              </span>
-              <span className="date">
-                <Link
-                  to={`/printarticle-${data.strapiNoticia.strapiId}.html`}
-                  title="Versión para Imprimir"
-                >
-                  <FaPrint className="icon" />
-                </Link>
-              </span>
+              <div className="date-box">
+                <span className="date">
+                  <FaRegClock className="icon"></FaRegClock>
+                  {date}
+                </span>
+                <span className="date">
+                  <Link
+                    to={`/printarticle-${data.strapiNoticia.strapiId}.html`}
+                    title="Versión para Imprimir"
+                  >
+                    <FaPrint className="icon" />
+                  </Link>
+                </span>
+              </div>
+
+              <div className="underline"></div>
             </div>
+            {image && (
+              <GatsbyImage
+                image={getImage(image.localFile)}
+                className="image"
+                alt={title}
+                title={title}
+              />
+            )}
+            {anyo < 2018 ? (
+              <>
+                {hometext && (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: hometext.data.hometext }}
+                  />
+                )}
+                {bodytext && (
+                  <p
+                    dangerouslySetInnerHTML={{ __html: bodytext.data.bodytext }}
+                  />
+                )}
+              </>
+            ) : (
+              <>
+                <ReactMarkdown children={hometext.data.hometext} />
 
-            <div className="underline"></div>
-          </div>
-          {image && (
-            <GatsbyImage
-              image={getImage(image.localFile)}
-              className="image"
-              alt={title}
-              title={title}
-            />
-          )}
-          {anyo < 2018 ? (
-            <>
-              {hometext && (
-                <div
-                  dangerouslySetInnerHTML={{ __html: hometext.data.hometext }}
-                />
-              )}
-              {bodytext && (
-                <p
-                  dangerouslySetInnerHTML={{ __html: bodytext.data.bodytext }}
-                />
-              )}
-            </>
-          ) : (
-            <>
-              <ReactMarkdown source={hometext} />
+                <ReactMarkdown children={bodytext.data.bodytext} />
+              </>
+            )}
+            {topics.map((topic) => (
+              <Link
+                key={topic.slug}
+                className="category topic"
+                to={`/noticias/tema/${topic.slug}`}
+              >
+                {topic.Title}
+              </Link>
+            ))}
+          </article>
 
-              <ReactMarkdown source={bodytext} />
-            </>
-          )}
-        </article>
-        {topics.map((topic) => (
-          <Link
-            key={topic.slug}
-            className="category topic"
-            to={`/noticias/tema/${topic.slug}`}
-          >
-            {topic.Title}
-          </Link>
-        ))}
+          <Banner />
+        </div>
       </Wrapper>
     </Layout>
   )
 }
 
 const Wrapper = styled.section`
-  width: 85vw;
-  max-width: 1100px;
-  margin: 0 auto;
-  margin-bottom: 4rem;
   .category {
     color: var(--clr-white);
     background: var(--clr-grey-4);
@@ -149,19 +150,6 @@ const Wrapper = styled.section`
     background: var(--clr-grey-9);
     margin: 1rem auto;
     margin-bottom: 1rem;
-  }
-
-  @media (min-width: 992px) {
-    & {
-      width: 92vw;
-    }
-  }
-  @media (min-width: 1170px) {
-    & {
-      display: grid;
-      grid-template-columns: 1fr 200px;
-      column-gap: 4rem;
-    }
   }
 `
 

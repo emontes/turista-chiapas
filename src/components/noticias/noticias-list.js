@@ -4,16 +4,12 @@ import styled from 'styled-components'
 
 const NoticiasList = ({ noticias }) => {
   return (
-    <Wrapper>
+    <div>
       {noticias.map((noticia) => (
         <NoticiaCard key={noticia.id} noticia={noticia} />
       ))}
-    </Wrapper>
+    </div>
   )
 }
-
-const Wrapper = styled.section`
-  margin-top: 1rem;
-`
 
 export default NoticiasList

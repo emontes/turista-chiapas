@@ -109,19 +109,31 @@ a {
 }
 p {
   margin-bottom: 1.4rem;
-  color: var(--clr-grey-3);
+  color: var(--clr-grey-5);
 }
 
 /* section */
 .section {
-  border: 1px solid red;
-  padding: 8rem;
+  
+  max-width: var(--max-width);
+  margin: 0 auto;
+  margin-bottom: 4rem;
 }
 
 .section-center {
-  width: 90vw;
-  margin: 0rem auto;
-  max-width: 117rem;
+  @media screen and (min-width: 1170px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 1rem;
+  }
+}
+
+.section-title {
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #e12d39;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .cont-area {

@@ -33,7 +33,9 @@ const NoticiaCard = ({ noticia }) => {
         {anyo < 2018 ? (
           <div dangerouslySetInnerHTML={{ __html: hometext }} />
         ) : (
-          <ReactMarkdown source={hometext} />
+          <>
+            <ReactMarkdown children={hometext} />
+          </>
         )}
 
         <footer>
