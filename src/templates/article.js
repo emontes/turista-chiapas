@@ -36,14 +36,8 @@ const Article = ({ data }) => {
                   <FaRegClock className="icon"></FaRegClock>
                   {date}
                 </span>
-                <span className="date">
-                  <Link
-                    to={`/printarticle-${data.strapiNoticia.strapiId}.html`}
-                    title="Versión para Imprimir"
-                  >
-                    <FaPrint className="icon" />
-                  </Link>
-                </span>
+
+                <div class="s9-widget-wrapper"></div>
               </div>
 
               <div className="underline"></div>

@@ -50,5 +50,13 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: strapiConfig,
     },
+    {
+      resolve: 'gatsby-plugin-social9-socialshare',
+      options: {
+        content: 'ae9c46e812cc4d8db2c068957c7c140b',
+        async: true,
+        defer: true,
+      },
+    },
   ],
 }
