@@ -15,21 +15,21 @@ module.exports = {
     description:
       'El Turista Chiapas cuenta con las herramientas necesarias para que los turistas puedan planear su viaje por Chiapas.',
     titleTemplate: `%s | Turista Chiapas`,
-    siteUrl: `https://chiapas.turista.com.mx`,
+    url: `https://chiapas.turista.com.mx`,
     twitterUsername: `@turistamexico`,
-    // image: `/desarrollador-web.jpg`,
+    image: `/assets/images/portada-chiapas-1.jpg`,
   },
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-693957-18',
       },
     },
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

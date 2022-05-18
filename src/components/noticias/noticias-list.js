@@ -1,6 +1,5 @@
 import React from 'react'
 import NoticiaCard from './noticia-card'
-import styled from 'styled-components'
 
 const NoticiasList = ({ noticias }) => {
   return (

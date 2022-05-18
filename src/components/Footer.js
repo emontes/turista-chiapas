@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import LinksFooter2 from '../constants/links_footer2'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import socialLinks from '../constants/social_links'
+import SocialLinks from '../constants/social_links'
 import destacadosChiapas from '../constants/footer_des_chiapas'
 import otrosDestinos from '../constants/footer_otros_destinos'
 import { BiChevronRightCircle } from 'react-icons/bi'
@@ -13,17 +13,7 @@ const Footer = ({ title = 'El Turista Chiapas' }) => {
     <Wrapper>
       <div className="footer-1">
         <div className="foot">
-          <ul className="social-links">
-            {socialLinks.map((link) => {
-              return (
-                <li key={link.id}>
-                  <a href={link.url} className="social-link">
-                    {link.icon}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
+          <SocialLinks styleClass="footer-icons" />
           <a href="https://turista.com.mx">
             <StaticImage
               src="../assets/images/logosmal2.png"

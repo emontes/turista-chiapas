@@ -18,13 +18,12 @@ const About = (props) => {
         {props.description || (
           <span
             dangerouslySetInnerHTML={{
-              __html:
-                "La <b>Guía de Chiapas</b> por <a href='https://turista.com.mx'>Turista México</a>",
+              __html: 'La <b>Guía de Turismo</b> en <i>Chiapas</i>',
             }}
           />
         )}
       </p>
-      {/* <SocialLinks styleClass="banner-icons"></SocialLinks> */}
+      <SocialLinks styleClass="banner-icons"></SocialLinks>
     </Wrapper>
   )
 }

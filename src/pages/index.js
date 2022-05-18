@@ -4,12 +4,14 @@ import Layout from '../components/Layout'
 import NoticiasList from '../components/Noticias/noticias-list'
 import Banner from '../components/Banner'
 import InsertaScript from '../Complete/InsertaScript'
+import Seo from '../components/Seo'
 
 const index = ({ data }) => {
   const liga =
     '//tp.media/content?0=0&1=10&currency=mxn&promo_id=4285&shmarker=182367&campaign_id=101&trs=29063&search_host=jet.turista.com.mx%2Fhotels&locale=es&draggable=true&disable_zoom=false&show_logo=true&scrollwheel=false&color=%2307AF61&contrast_color=%23ffffff&width=800&height=500&zoom=7&radius=60&stars=0%2C1%2C2%2C3%2C4%2C5&price_from=&price_to=&lat=16.75&lng=-92.633333'
   return (
     <Layout heroImg={data.image.childImageSharp}>
+      <Seo title="Home" />
       <section className="section">
         <div className="section-center">
           <div className="cont-area">
@@ -47,7 +49,7 @@ export default index
 export const query = graphql`
   query {
     allStrapiNoticia(
-      limit: 10
+      limit: 3
       filter: { estado: { slug: { eq: "chiapas" } } }
       sort: { fields: date, order: DESC }
     ) {

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 const Title = ({ title }) => {
   return (
     <Wrapper>
-      <div className="line"></div>
       <h4>{title}</h4>
+      <div className="line"></div>
     </Wrapper>
   )
 }
@@ -12,11 +12,12 @@ const Wrapper = styled.div`
   position: relative;
   text-align: center;
   margin-bottom: 1.25rem;
+  z-index: 0;
   h4 {
     color: var(--clr-grey-3);
-    text-transform: uppercase;
+    font-size: 1.5rem;
     font-weight: 500;
-    background: var(--clr-white);
+    background: var(--clr-grey-10);
     display: inline-block;
     margin-bottom: 0;
     padding: 0 0.6rem;

@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import About from './About'
-import HotelsBox from './HotelsBox'
 
 const index = () => {
   return (
     <Wrapper>
-      <About />
-      <HotelsBox />
+      <About title="Noticias" description="Noticias de Turismo en Chiapas" />
     </Wrapper>
   )
 }

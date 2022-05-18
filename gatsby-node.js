@@ -12,7 +12,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         ) {
           nodes {
             id
-            title
             slug
             dateslug: date(formatString: "yy/M/D")
           }
@@ -30,8 +29,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  // Define a template for article post
-  const articlePost = path.resolve('./src/templates/article.js')
+  // Define a template for noticia post
+  const articlePost = path.resolve('./src/templates/noticias/noticia.js')
 
   const articles = result.data.allStrapiNoticia.nodes
 

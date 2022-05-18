@@ -18,12 +18,12 @@ const data = [
   {
     id: 4,
     text: 'información',
-    url: '/info/',
+    url: '/informacion/',
   },
   {
     id: 5,
     text: 'directorio',
-    url: '/links/',
+    url: '/directorio/',
   },
 ]
 

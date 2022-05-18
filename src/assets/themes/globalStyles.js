@@ -146,21 +146,58 @@ p {
 }
 
 /* social links */
-.social-links {
-  margin-top: 3.2rem;
-  width: 24rem;
+
+.footer-icons {
+  font-size: 2.4rem;
   display: flex;
   justify-content: space-between;
 }
-.social-link {
-  font-size: 2.8rem;
-  color: var(--clr-grey-1);
+
+.nav-icons {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+  }
+
+.social-icon {
+    
+    transition: var(--transition);
+    margin-left: 0.5rem;
+  }
+
+/*===============
+Banner Component
+===============
+*/
+.banner-icons {
+  display: flex;
+  justify-content: center;
+}
+.banner-icons a {
+  font-size: 1.5rem;
+  margin: 0 0.25rem;
+}
+.banner-icons li {
   transition: var(--transition);
 }
-.social-link:hover {
-  color: var(--clr-primary-5);
+.banner-icons li:hover {
+  transform: translateY(-10%);
 }
 
+
+.social-icon:hover {
+    color: var(--clr-primary-5);
+    transform: translateY(-5px);
+  }
+.facebook-icon {
+  color: #3b5998;
+}
+.twitter-icon {
+  color: #00acee;
+}
+.dribble-icon {
+  color: #ea4c89;
+}
 /*
 =============== 
 Sidebar

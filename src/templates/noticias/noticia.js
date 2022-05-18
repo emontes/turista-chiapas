@@ -1,12 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import Layout from '../../components/Layout'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { FaRegClock, FaPrint } from 'react-icons/fa'
+import { FaRegClock } from 'react-icons/fa'
 import { Link } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
-import Banner from '../components/Banner'
+import Banner from '../../components/Banner'
+import Seo from '../../components/Seo'
 
 const Article = ({ data }) => {
   const {
@@ -23,6 +24,7 @@ const Article = ({ data }) => {
   const anyo = fecha.getFullYear()
   return (
     <Layout>
+      <Seo title={title} description={hometext.data.hometext} />
       <Wrapper className="section">
         <div className="section-center">
           <article className="cont-area">
@@ -80,8 +82,12 @@ const Article = ({ data }) => {
               </Link>
             ))}
           </article>
-
-          <Banner />
+          <div
+            className="cont-area"
+            style={{ background: 'var(--clr-grey-10)' }}
+          >
+            <Banner />
+          </div>
         </div>
       </Wrapper>
     </Layout>
