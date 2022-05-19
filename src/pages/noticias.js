@@ -2,8 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import { graphql } from 'gatsby'
-import NoticiasList from '../components/Noticias/noticias-list'
-import Banner from '../components/Banner/indexNoticias'
+import Noticias from '../components/Noticias'
 
 const noticias = ({ data }) => {
   return (
@@ -12,19 +11,8 @@ const noticias = ({ data }) => {
         title="Noticias de Chiapas"
         description="Artículos Informativos y de Noticias en Turista Chiapas. Nos enfocamos principalmente en noticias de turismo en Chiapas."
       />
-      <section className="section">
-        <h3 className="section-title">Últimas Noticias de Chiapas</h3>
-        <div className="section-center">
-          <NoticiasList noticias={data.allStrapiNoticia.nodes} />
 
-          <div
-            className="cont-area"
-            style={{ background: 'var(--clr-grey-10)' }}
-          >
-            <Banner />
-          </div>
-        </div>
-      </section>
+      <Noticias noticias={data.allStrapiNoticia.nodes} title="Noticias" />
     </Layout>
   )
 }
