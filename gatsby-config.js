@@ -16,6 +16,7 @@ module.exports = {
       'El Turista Chiapas cuenta con las herramientas necesarias para que los turistas puedan planear su viaje por Chiapas.',
     titleTemplate: `%s | Turista Chiapas`,
     url: `https://chiapas.turista.com.mx`,
+    siteUrl: `https://chiapas.turista.com.mx`,
     twitterUsername: `@turistamexico`,
     image: `/assets/images/portada-chiapas-1.jpg`,
   },

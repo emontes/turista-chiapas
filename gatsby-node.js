@@ -30,7 +30,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   // Define a template for noticia post
-  const articlePost = path.resolve('./src/templates/noticias/noticia.js')
+  const articlePost = path.resolve(
+    './src/templates/noticias/noticia.template.js',
+  )
 
   const articles = result.data.allStrapiNoticia.nodes
 
@@ -41,6 +43,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: articlePost,
         context: {
           id: article.id,
+        },
+      })
+    })
+
+    //Create noticas pages
+    const postPerPage = 16
+    const numPages = Math.ceil(articles.length / postPerPage)
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/noticias` : `/noticias/ultimas/${i + 1}`,
+        component: path.resolve(
+          './src/templates/noticias/noticias.template.js',
+        ),
+        context: {
+          limit: postPerPage,
+          skip: i * postPerPage,
         },
       })
     })

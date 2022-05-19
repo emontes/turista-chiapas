@@ -5,7 +5,6 @@ import Title from './Title'
 import styled from 'styled-components'
 
 const About = (props) => {
-  console.log('Props en About ----> ', props)
   return (
     <Wrapper>
       <Title title={props.title || 'El Turista Chiapas'} />

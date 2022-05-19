@@ -12,10 +12,11 @@ const NoticiaCard = ({ noticia }) => {
   const hometext = noticia.hometext.data.hometext
 
   let imagen
+  if (topic.image) {
+    imagen = topic.image.localFile
+  }
   if (noticia.image) {
     imagen = noticia.image.localFile
-  } else {
-    imagen = topic.image.localFile
   }
 
   return (
@@ -23,12 +24,14 @@ const NoticiaCard = ({ noticia }) => {
       <Link to={`/${noticia.dateslug}/${noticia.slug}`}>
         <h3>{noticia.title}</h3>
 
-        <GatsbyImage
-          image={getImage(imagen)}
-          className="topic-image"
-          alt={topic.Title}
-          title={topic.Title}
-        />
+        {imagen && (
+          <GatsbyImage
+            image={getImage(imagen)}
+            className="topic-image"
+            alt={topic.Title}
+            title={topic.Title}
+          />
+        )}
 
         {anyo < 2018 ? (
           <div dangerouslySetInnerHTML={{ __html: hometext }} />

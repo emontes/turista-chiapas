@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { FaRegClock } from 'react-icons/fa'
 import { Link } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
-import Banner from '../../components/Banner'
+import Banner from '../../components/Banner/indexNoticias'
 import Seo from '../../components/Seo'
 
 const Article = ({ data }) => {
@@ -86,7 +86,7 @@ const Article = ({ data }) => {
             className="cont-area"
             style={{ background: 'var(--clr-grey-10)' }}
           >
-            <Banner />
+            <Banner title="Noticia" />
           </div>
         </div>
       </Wrapper>
