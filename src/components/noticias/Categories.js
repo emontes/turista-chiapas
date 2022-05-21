@@ -2,20 +2,20 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Title from '../Banner/Title'
 
-const Topics = ({ topics }) => {
+const Categories = ({ items }) => {
   return (
     <div>
-      <Title title="Temas" />
+      <Title title="Categorias" />
       <ul>
-        {topics.map((item, index) => {
+        {items.map((item, index) => {
           return (
             <li key={index}>
               <Link
-                to={`/noticias/tema/${item.slug}`}
+                to={`/noticias/${item.slug}`}
                 className="category-menu"
                 activeStyle={{ color: 'var(--clr-red-dark)' }}
               >
-                {item.Title}
+                {item.name}
               </Link>
             </li>
           )
@@ -25,4 +25,4 @@ const Topics = ({ topics }) => {
   )
 }
 
-export default Topics
+export default Categories

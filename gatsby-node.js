@@ -8,7 +8,74 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
      --------------------------------------*/
   const postPerPage = 16
 
-  //Crea las páginas de los Temas
+  // *** Create Categories Pages ***
+  console.log('Creando páginas de Categorías de noticias')
+  const resultCategories = await graphql(`
+    {
+      allStrapiNoticia(filter: { estado: { Name: { eq: "Chiapas" } } }) {
+        distinct(field: location___slug)
+      }
+    }
+  `)
+
+  const categories = resultCategories.data.allStrapiNoticia.distinct
+
+  // Obtiene datos de Categorías
+  let categoriesFull = []
+  categories.map(async (item) => {
+    console.log('Obteniendo datos de Categoria: ', item)
+    const result = await graphql(`
+      {
+        strapiLocation(
+          estado: { slug: { eq: "chiapas" } }
+          slug: { eq: "${item}" }
+        ) {
+          name
+          slug
+        }
+      }
+    `)
+    categoriesFull.push(result.data.strapiLocation)
+  })
+
+  categories.map(async (item) => {
+    const result = await graphql(`
+     {
+      allStrapiNoticia(
+        limit: ${postPerPage}
+        filter: {
+          estado: { slug: { eq: "chiapas" } }
+          location: { slug: {eq: "${item}" } }
+        }
+    ) {
+    pageInfo {
+          pageCount
+        }
+    }
+    }`)
+    const topicPages = result.data.allStrapiNoticia.pageInfo.pageCount
+    console.log('Category (item) ===> ', item)
+    console.log('Cuantos paginos:', topicPages)
+
+    for (var i = 0; i < topicPages; i++) {
+      createPage({
+        path: i === 0 ? `/noticias/${item}` : `/noticias/${item}/${i + 1}`,
+
+        component: path.resolve(
+          './src/templates/noticias/category-template.js',
+        ),
+        context: {
+          limit: postPerPage,
+          skip: i * postPerPage,
+          slug: item,
+          topics: topicsFull,
+          categories: categoriesFull,
+        },
+      })
+    }
+  })
+
+  // *** Crea las páginas de los Temas ***
   console.log('Creando páginas de Temas de Noticias')
   const resultTopics = await graphql(`
     {
@@ -74,12 +141,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           skip: i * postPerPage,
           slug: item,
           topics: topicsFull,
+          categories: categoriesFull,
         },
       })
     }
   })
 
-  //Crea páginas de cada noticia
+  // ** Crea páginas de cada noticia **
   console.log('Creando páginas para cada noticia')
   const result = await graphql(
     `
@@ -113,16 +181,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   )
 
   const articles = result.data.allStrapiNoticia.nodes
-
+  console.log('Creando páginas individuales de artículos.....')
   if (articles.length > 0) {
     articles.forEach((article) => {
-      console.log('Creando', article.slug)
+      // console.log('Creando', article.slug)
       createPage({
         path: `/${article.dateslug}/${article.slug}`,
         component: articlePost,
         context: {
           id: article.id,
           topics: topicsFull,
+          categories: categoriesFull,
         },
       })
     })
@@ -140,6 +209,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           limit: postPerPage,
           skip: i * postPerPage,
           topics: topicsFull,
+          categories: categoriesFull,
         },
       })
     })

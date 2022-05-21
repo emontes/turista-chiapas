@@ -4,11 +4,11 @@ import Seo from '../../components/Seo'
 import { graphql } from 'gatsby'
 import Noticias from '../../components/Noticias'
 
-const Topic = ({ data, pageContext }) => {
+const Category = ({ data, pageContext }) => {
   const pageInfo = data.allStrapiNoticia.pageInfo
 
-  let titleSeo = `Noticias del Tema: ${data.topic.Title}`
-  let descriptionSeo = `Artículos publicados con el tema ${data.topic.Title} en el Turista Chiapas.`
+  let titleSeo = `Noticias de ${data.location.name}`
+  let descriptionSeo = `La categoría de noticias de ${data.location.name} se refiere a noticias relacionadas con el turismo en ${data.location.name}, Chiapas`
   if (pageInfo.currentPage > 1) {
     titleSeo = titleSeo + ' Página. ' + pageInfo.currentPage
     descriptionSeo = 'Página ' + pageInfo.currentPage + ' de ' + descriptionSeo
@@ -22,14 +22,15 @@ const Topic = ({ data, pageContext }) => {
         title={titleSeo}
         description={descriptionSeo}
         pageInfo={pageInfo}
-        url={`/noticias/tema/${pageContext.slug}`}
+        url={`/noticias/${pageContext.slug}`}
         topics={pageContext.topics}
+        categories={pageContext.categories}
       />
     </Layout>
   )
 }
 
-export default Topic
+export default Category
 
 export const query = graphql`
   query($slug: String!, $skip: Int!, $limit: Int!) {
@@ -38,7 +39,7 @@ export const query = graphql`
       skip: $skip
       filter: {
         estado: { slug: { eq: "chiapas" } }
-        topics: { elemMatch: { slug: { eq: $slug } } }
+        location: { slug: { eq: $slug } }
       }
       sort: { fields: date, order: DESC }
     ) {
@@ -56,15 +57,10 @@ export const query = graphql`
       }
     }
 
-    topic: strapiTopic(slug: { eq: $slug }) {
-      Title
-      image {
-        localFile {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
+    location: strapiLocation(slug: { eq: $slug }) {
+      name
+      latitude
+      longitude
     }
 
     image: file(relativePath: { eq: "portada-chiapas-1.jpg" }) {

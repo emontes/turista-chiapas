@@ -86,7 +86,7 @@ const Article = ({ data, pageContext }) => {
             className="cont-area"
             style={{ background: 'var(--clr-grey-10)' }}
           >
-            <Banner title="Noticia" topics={pageContext.topics} />
+            <Banner title="Noticia" categories={pageContext.categories} />
           </div>
         </div>
       </Wrapper>

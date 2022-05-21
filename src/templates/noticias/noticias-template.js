@@ -14,6 +14,7 @@ const noticias = ({ data, pageContext }) => {
     titleSeo = titleSeo + ' Página. ' + pageInfo.currentPage
     descriptionSeo = 'Página ' + pageInfo.currentPage + ' de ' + descriptionSeo
   }
+
   return (
     <Layout>
       <Seo title={titleSeo} description={descriptionSeo} />
@@ -25,6 +26,7 @@ const noticias = ({ data, pageContext }) => {
         pageInfo={pageInfo}
         url="/noticias/ultimas"
         topics={pageContext.topics}
+        categories={pageContext.categories}
       />
     </Layout>
   )

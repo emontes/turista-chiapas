@@ -12,9 +12,12 @@ const NoticiaCard = ({ noticia }) => {
   const hometext = noticia.hometext.data.hometext
 
   let imagen
-  if (topic.image) {
-    imagen = topic.image.localFile
+  if (topic) {
+    if (topic.image) {
+      imagen = topic.image.localFile
+    }
   }
+
   if (noticia.image) {
     imagen = noticia.image.localFile
   }

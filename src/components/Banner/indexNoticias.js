@@ -2,16 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import About from './About'
 import Topics from '../Noticias/Topics'
+import Categories from '../Noticias/Categories'
 
 const index = ({
   title,
   description = 'Noticias de Turismo en Chiapas',
   isHome,
   topics,
+  categories,
 }) => {
   return (
     <Wrapper>
       {!isHome && <About title={title} description={description} />}
+      {categories && <Categories items={categories} />}
       {topics && <Topics topics={topics} />}
     </Wrapper>
   )

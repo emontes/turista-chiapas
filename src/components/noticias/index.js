@@ -10,6 +10,7 @@ const Noticias = ({
   pageInfo,
   url,
   topics,
+  categories,
 }) => {
   return (
     <section
@@ -29,6 +30,7 @@ const Noticias = ({
             description={description}
             isHome={isHome}
             topics={topics}
+            categories={categories}
           />
         </div>
       </div>
