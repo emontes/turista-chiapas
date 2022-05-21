@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import About from './About'
 
-const index = ({ title, isHome }) => {
+const index = ({
+  title,
+  description = 'Noticias de Turismo en Chiapas',
+  isHome,
+}) => {
   return (
     <Wrapper>
-      {!isHome && (
-        <About title={title} description="Noticias de Turismo en Chiapas" />
-      )}
+      {!isHome && <About title={title} description={description} />}
     </Wrapper>
   )
 }

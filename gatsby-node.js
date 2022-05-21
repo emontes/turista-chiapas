@@ -3,6 +3,62 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+  /* ---------------------------------------
+     ------------ Noticias  --------------
+     --------------------------------------*/
+  const postPerPage = 16
+
+  //Crea las páginas de los Temas
+  console.log('Creando páginas de Temas de Noticias')
+  const resultTopics = await graphql(`
+    {
+      allStrapiNoticia(filter: { estado: { Name: { eq: "Chiapas" } } }) {
+        distinct(field: topics___slug)
+      }
+    }
+  `)
+
+  const topics = resultTopics.data.allStrapiNoticia.distinct
+
+  topics.map(async (item) => {
+    const resultTopic = await graphql(`
+     {
+      allStrapiNoticia(
+        limit: ${postPerPage}
+        filter: {
+          estado: { slug: { eq: "chiapas" } }
+          topics: { elemMatch: { slug: { eq: "${item}" } } }
+        }
+    ) {
+    pageInfo {
+          pageCount
+        }
+    }
+    }`)
+    const topicPages = resultTopic.data.allStrapiNoticia.pageInfo.pageCount
+    console.log('Topic (item) ===> ', item)
+    console.log('Cuantos paginos:', topicPages)
+
+    for (var i = 0; i < topicPages; i++) {
+      // for (var i = 0; i < 6; i++) {
+      createPage({
+        path:
+          i === 0
+            ? `/noticias/tema/${item}`
+            : `/noticias/tema/${item}/${i + 1}`,
+
+        component: path.resolve('./src/templates/noticias/topic-template.js'),
+        context: {
+          limit: postPerPage,
+          skip: i * postPerPage,
+          slug: item,
+        },
+      })
+    }
+  })
+
+  //Crea páginas de cada noticia
+  console.log('Creando páginas para cada noticia')
   const result = await graphql(
     `
       {
@@ -31,13 +87,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for noticia post
   const articlePost = path.resolve(
-    './src/templates/noticias/noticia.template.js',
+    './src/templates/noticias/noticia-template.js',
   )
 
   const articles = result.data.allStrapiNoticia.nodes
 
   if (articles.length > 0) {
     articles.forEach((article) => {
+      console.log('Creando', article.slug)
       createPage({
         path: `/${article.dateslug}/${article.slug}`,
         component: articlePost,
@@ -48,13 +105,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
 
     //Create noticas pages
-    const postPerPage = 16
+
     const numPages = Math.ceil(articles.length / postPerPage)
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/noticias` : `/noticias/ultimas/${i + 1}`,
         component: path.resolve(
-          './src/templates/noticias/noticias.template.js',
+          './src/templates/noticias/noticias-template.js',
         ),
         context: {
           limit: postPerPage,

@@ -1,8 +1,15 @@
 import React from 'react'
 import NoticiaCard from './noticia-card'
 import Banner from '../Banner/indexNoticias'
-
-const Noticias = ({ noticias, isHome, title = 'Noticias' }) => {
+import Pagination from './Pagination'
+const Noticias = ({
+  noticias,
+  isHome,
+  title = 'Noticias',
+  description = 'Noticias de Turismo en Chiapas',
+  pageInfo,
+  url,
+}) => {
   return (
     <section
       className="section cont-area"
@@ -13,9 +20,10 @@ const Noticias = ({ noticias, isHome, title = 'Noticias' }) => {
           {noticias.map((noticia) => (
             <NoticiaCard key={noticia.id} noticia={noticia} />
           ))}
+          {!isHome && <Pagination pageInfo={pageInfo} url={url} />}
         </div>
         <div>
-          <Banner title={title} isHome={isHome} />
+          <Banner title={title} description={description} isHome={isHome} />
         </div>
       </div>
     </section>
