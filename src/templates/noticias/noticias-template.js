@@ -4,7 +4,7 @@ import Seo from '../../components/Seo'
 import { graphql } from 'gatsby'
 import Noticias from '../../components/Noticias'
 
-const noticias = ({ data }) => {
+const noticias = ({ data, pageContext }) => {
   const pageInfo = data.allStrapiNoticia.pageInfo
 
   let titleSeo = 'Noticias de Chiapas'
@@ -24,6 +24,7 @@ const noticias = ({ data }) => {
         description={descriptionSeo}
         pageInfo={pageInfo}
         url="/noticias/ultimas"
+        topics={pageContext.topics}
       />
     </Layout>
   )

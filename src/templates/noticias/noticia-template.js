@@ -9,7 +9,7 @@ import ReactMarkdown from 'react-markdown'
 import Banner from '../../components/Banner/indexNoticias'
 import Seo from '../../components/Seo'
 
-const Article = ({ data }) => {
+const Article = ({ data, pageContext }) => {
   const {
     title,
     datePlano,
@@ -86,7 +86,7 @@ const Article = ({ data }) => {
             className="cont-area"
             style={{ background: 'var(--clr-grey-10)' }}
           >
-            <Banner title="Noticia" />
+            <Banner title="Noticia" topics={pageContext.topics} />
           </div>
         </div>
       </Wrapper>

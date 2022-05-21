@@ -9,6 +9,7 @@ const Noticias = ({
   description = 'Noticias de Turismo en Chiapas',
   pageInfo,
   url,
+  topics,
 }) => {
   return (
     <section
@@ -23,7 +24,12 @@ const Noticias = ({
           {!isHome && <Pagination pageInfo={pageInfo} url={url} />}
         </div>
         <div>
-          <Banner title={title} description={description} isHome={isHome} />
+          <Banner
+            title={title}
+            description={description}
+            isHome={isHome}
+            topics={topics}
+          />
         </div>
       </div>
     </section>

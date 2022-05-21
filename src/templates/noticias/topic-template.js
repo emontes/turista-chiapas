@@ -6,7 +6,7 @@ import Noticias from '../../components/Noticias'
 
 const Topic = ({ data, pageContext }) => {
   const pageInfo = data.allStrapiNoticia.pageInfo
-
+  console.log('Page cContext topic-template ======> ', pageContext)
   let titleSeo = `Noticias del Tema: ${data.topic.Title}`
   let descriptionSeo = `Artículos publicados con el tema ${data.topic.Title} en el Turista Chiapas.`
   if (pageInfo.currentPage > 1) {
@@ -23,6 +23,7 @@ const Topic = ({ data, pageContext }) => {
         description={descriptionSeo}
         pageInfo={pageInfo}
         url={`/noticias/tema/${pageContext.slug}`}
+        topics={pageContext.topics}
       />
     </Layout>
   )

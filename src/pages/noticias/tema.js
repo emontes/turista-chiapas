@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import Seo from '../../components/Seo'
-import { Link } from 'gatsby'
 
+import ButtonPages from '../../components/Noticias/ButtonPages'
 const Tema = ({ data }) => {
   const topics = data.allStrapiNoticia.distinct
   return (
@@ -12,10 +12,20 @@ const Tema = ({ data }) => {
         title="Temas de Noticias en Turista Chiapas"
         description="Muestra los diferentes temas de noticias que se encuentran registrados en Turista Chiapas."
       />
-      <div className="cont-area">
+      <div
+        className="cont-area"
+        style={{
+          padding: '2rem',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '2rem',
+        }}
+      >
         {topics.map((item) => (
           <p key={item}>
-            <Link to={item}>{item}</Link>
+            <ButtonPages url={item} description={item} />
           </p>
         ))}
       </div>

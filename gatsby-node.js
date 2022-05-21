@@ -20,6 +20,28 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const topics = resultTopics.data.allStrapiNoticia.distinct
 
+  // Obtiene los datos de los topics (Nombre, url, imagen)
+
+  let topicsFull = []
+  topics.map(async (item) => {
+    console.log('Obteniendo datos de tema: ', item)
+    const result = await graphql(`{
+      strapiTopic(slug: {eq: "${item}"}) {
+        Title
+        slug
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+    `)
+    topicsFull.push(result.data.strapiTopic)
+  })
+
   topics.map(async (item) => {
     const resultTopic = await graphql(`
      {
@@ -40,7 +62,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     console.log('Cuantos paginos:', topicPages)
 
     for (var i = 0; i < topicPages; i++) {
-      // for (var i = 0; i < 6; i++) {
       createPage({
         path:
           i === 0
@@ -52,6 +73,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           limit: postPerPage,
           skip: i * postPerPage,
           slug: item,
+          topics: topicsFull,
         },
       })
     }
@@ -100,6 +122,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: articlePost,
         context: {
           id: article.id,
+          topics: topicsFull,
         },
       })
     })
@@ -116,6 +139,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: {
           limit: postPerPage,
           skip: i * postPerPage,
+          topics: topicsFull,
         },
       })
     })

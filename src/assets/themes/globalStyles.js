@@ -145,6 +145,20 @@ p {
     padding: 1rem;
 }
 
+.category-menu {
+    font-size: 1.5rem;
+    color: var(--clr-grey-5);
+    line-height: 2rem;
+    display: block;
+    
+    letter-spacing: var(--spacing);
+    transition: var(--transition);
+    border-radius: var(--radius);
+  }
+  .category-menu:hover {
+    background: var(--clr-primary-9);
+  }
+
 /* social links */
 
 .footer-icons {
