@@ -148,6 +148,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 
   // ** Crea páginas de cada noticia **
+
   console.log('Creando páginas para cada noticia')
   const result = await graphql(
     `
@@ -159,7 +160,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nodes {
             id
             slug
-            dateslug: date(formatString: "yy/M/D")
+            dateslug: date(formatString: "yy/M")
           }
         }
       }

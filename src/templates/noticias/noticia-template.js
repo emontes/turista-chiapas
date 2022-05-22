@@ -160,7 +160,7 @@ export const pageQuery = graphql`
       slug
       title
       date(formatString: "dd D MMM yy", locale: "es")
-      dateslug: date(formatString: "yy/M/D")
+      dateslug: date(formatString: "yy/M")
       datePlano: date
       hometext {
         data {

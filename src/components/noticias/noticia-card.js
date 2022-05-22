@@ -119,7 +119,7 @@ export const query = graphql`
     slug
     title
     date(formatString: "ddd D MMM yy", locale: "es")
-    dateslug: date(formatString: "yy/M/D")
+    dateslug: date(formatString: "yy/M")
     datePlano: date
     image {
       localFile {
