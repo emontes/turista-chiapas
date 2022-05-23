@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import About from './About'
 import Topics from '../Noticias/Topics'
 import Categories from '../Noticias/Categories'
+import BannerAdsense from '../../utilities/BannerAdsense'
 
 const index = ({
   title,
@@ -16,6 +17,7 @@ const index = ({
       {!isHome && <About title={title} description={description} />}
       {categories && <Categories items={categories} />}
       {topics && <Topics topics={topics} />}
+      <BannerAdsense />
     </Wrapper>
   )
 }

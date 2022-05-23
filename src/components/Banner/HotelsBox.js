@@ -1,6 +1,6 @@
 import React from 'react'
 import Title from './Title'
-import InsertaScript from '../../Complete/InsertaScript'
+import InsertaScript from '../../utilities/InsertaScript'
 
 const HotelsBox = () => {
   const liga =

@@ -21,6 +21,7 @@ module.exports = {
     image: `/assets/images/portada-chiapas-1.jpg`,
   },
   plugins: [
+    'gatsby-plugin-htaccess', // Para que haga las redirecciones en Apache2
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',

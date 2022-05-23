@@ -1,6 +1,6 @@
 import React from 'react'
 import Banner from '../Banner'
-import InsertaScript from '../../Complete/InsertaScript'
+import InsertaScript from '../../utilities/InsertaScript'
 import styled from 'styled-components'
 
 const Mapa = () => {

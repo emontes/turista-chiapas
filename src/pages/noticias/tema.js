@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import Seo from '../../components/Seo'
+import BannerAdsense from '../../utilities/BannerAdsense'
 
 import ButtonPages from '../../components/Noticias/ButtonPages'
 const Tema = ({ data }) => {
@@ -29,6 +30,7 @@ const Tema = ({ data }) => {
           </p>
         ))}
       </div>
+      <BannerAdsense />
     </Layout>
   )
 }

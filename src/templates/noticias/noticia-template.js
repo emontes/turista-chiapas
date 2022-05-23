@@ -8,6 +8,7 @@ import { Link } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
 import Banner from '../../components/Banner/indexNoticias'
 import Seo from '../../components/Seo'
+import BannerAdsense from '../../utilities/BannerAdsense'
 
 const Article = ({ data, pageContext }) => {
   const {
@@ -26,6 +27,8 @@ const Article = ({ data, pageContext }) => {
     <Layout>
       <Seo title={title} description={hometext.data.hometext} />
       <Wrapper className="section">
+        <BannerAdsense />
+
         <div className="section-center">
           <article className="cont-area">
             <div className="post-info">
@@ -59,6 +62,7 @@ const Article = ({ data, pageContext }) => {
                     dangerouslySetInnerHTML={{ __html: hometext.data.hometext }}
                   />
                 )}
+                <BannerAdsense />
                 {bodytext && (
                   <p
                     dangerouslySetInnerHTML={{ __html: bodytext.data.bodytext }}
@@ -68,7 +72,7 @@ const Article = ({ data, pageContext }) => {
             ) : (
               <>
                 <ReactMarkdown children={hometext.data.hometext} />
-
+                <BannerAdsense />
                 <ReactMarkdown children={bodytext.data.bodytext} />
               </>
             )}
@@ -89,6 +93,7 @@ const Article = ({ data, pageContext }) => {
             <Banner title="Noticia" categories={pageContext.categories} />
           </div>
         </div>
+        <BannerAdsense style={{ marginTop: '1rem' }} />
       </Wrapper>
     </Layout>
   )
