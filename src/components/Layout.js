@@ -9,7 +9,7 @@ import OuterBottom from '../assets/images/outer_bottom.png'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 
-const Layout = ({ children, heroImg }) => {
+const Layout = ({ children, heroImg, main, sub }) => {
   const [isOpen, setIsOpen] = useState(false)
   const toggleSidebar = () => {
     setIsOpen(!isOpen)
@@ -19,7 +19,7 @@ const Layout = ({ children, heroImg }) => {
       <GlobalStyles />
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      {heroImg && <Hero image={heroImg} />}
+      {heroImg && <Hero image={heroImg} main={main} sub={sub} />}
 
       <Wrapper>
         <div className="outer-top">

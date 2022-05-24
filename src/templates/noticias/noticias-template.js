@@ -16,7 +16,11 @@ const noticias = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout>
+    <Layout
+      heroImg={data.image.localFile.childImageSharp}
+      main="Noticias"
+      sub="sobre Chiapas"
+    >
       <Seo title={titleSeo} description={descriptionSeo} />
 
       <Noticias
@@ -56,9 +60,12 @@ export const query = graphql`
       }
     }
 
-    image: file(relativePath: { eq: "portada-chiapas-1.jpg" }) {
-      childImageSharp {
-        gatsbyImageData
+    image: strapiMedia(name: { eq: "noticia-chiapas-c2c.jpg" }) {
+      name
+      localFile {
+        childImageSharp {
+          gatsbyImageData
+        }
       }
     }
   }

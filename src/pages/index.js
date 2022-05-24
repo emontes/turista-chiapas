@@ -8,7 +8,11 @@ import Mapa from '../components/Home/mapa'
 
 const index = ({ data }) => {
   return (
-    <Layout heroImg={data.image.childImageSharp}>
+    <Layout
+      heroImg={data.image.childImageSharp}
+      main="Chiapas"
+      sub="El Espíritu del Mundo Maya"
+    >
       <Seo title="Home" />
       <Mapa />
       <Noticias

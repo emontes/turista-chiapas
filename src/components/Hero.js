@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-const Hero = ({ bgColor, image, main, sub, btnLink, btnText }) => {
+const Hero = ({ bgColor, image, main, sub, btnLink, btnText, children }) => {
   return (
     <Wrapper style={{ backgroundColor: `${bgColor || 'var(--clr-white)'}` }}>
       <div className="hero">
@@ -16,18 +16,21 @@ const Hero = ({ bgColor, image, main, sub, btnLink, btnText }) => {
         />
         <div className="hero-container">
           <div className="header__text-box">
-            <h1 className="heading-primary">
-              <span className="heading-primary--main">{main || 'Chiapas'}</span>
-              <span className="heading-primary--sub">
-                {sub || 'El Espíritu del Mundo Maya'}
-              </span>
-            </h1>
+            {main && (
+              <h1 className="heading-primary">
+                <span className="heading-primary--main">
+                  {main || 'Chiapas'}
+                </span>
+                {sub && <span className="heading-primary--sub">{sub}</span>}
+              </h1>
+            )}
 
             {btnLink && (
               <Link to={`/${btnLink}`} className="btn btn--white btn--animated">
                 {btnText || 'contact'}
               </Link>
             )}
+            {children}
           </div>
         </div>
       </div>
@@ -76,7 +79,7 @@ const Wrapper = styled.header`
     text-align: center;
   }
   .heading-primary {
-    color: var(--clr-primary-7);
+    color: var(--clr-primary-10);
     text-shadow: 1px 1px 2px black;
     text-transform: uppercase;
     backface-visibility: hidden;
@@ -84,7 +87,7 @@ const Wrapper = styled.header`
     &--main {
       display: block;
       font-size: 3.2rem;
-      font-weight: 400;
+      font-weight: 700;
       letter-spacing: 0.5rem;
       animation-name: moveInLeft;
       animation-duration: 1s;
