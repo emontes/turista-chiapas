@@ -18,7 +18,7 @@ module.exports = {
     url: `https://chiapas.turista.com.mx`,
     siteUrl: `https://chiapas.turista.com.mx`,
     twitterUsername: `@turistamexico`,
-    image: `/assets/images/portada-chiapas-1.jpg`,
+    image: `/portada-chiapas-1.jpg`,
   },
   plugins: [
     'gatsby-plugin-htaccess', // Para que haga las redirecciones en Apache2
@@ -29,7 +29,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-693957-18',
+        trackingId: 'UA-693957-11',
       },
     },
     {

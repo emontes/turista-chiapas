@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
 import Seo from '../components/Seo'
 import BannnerAdsense from '../utilities/BannerAdsense'
+import { getSrc } from 'gatsby-plugin-image'
 
 const Informacion = ({ data }) => {
   return (
@@ -14,6 +15,7 @@ const Informacion = ({ data }) => {
       <Seo
         title="Información de Chiapas"
         description="Artículos Informativos sobre el Estado de Chiapas, México"
+        image={getSrc(data.image.localFile.childImageSharp)}
       />
 
       <BannnerAdsense />

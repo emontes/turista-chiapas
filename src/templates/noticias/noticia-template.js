@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import styled from 'styled-components'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 import { FaRegClock } from 'react-icons/fa'
 import { Link } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
@@ -23,11 +23,24 @@ const Article = ({ data, pageContext }) => {
   } = data.strapiNoticia
   const fecha = new Date(datePlano)
   const anyo = fecha.getFullYear()
+  let displayImage
+  if (image) {
+    displayImage = image
+  } else {
+    displayImage = topics[0].image
+  }
+
   return (
     <Layout>
-      <Seo title={title} description={hometext.data.hometext} />
+      <Seo
+        title={title}
+        description={hometext.data.hometext}
+        image={getSrc(displayImage.localFile.childImageSharp)}
+      />
       <Wrapper className="section">
-        <BannerAdsense />
+        <div className="top-adsense">
+          <BannerAdsense />
+        </div>
 
         <div className="section-center">
           <article className="cont-area">
@@ -47,9 +60,9 @@ const Article = ({ data, pageContext }) => {
 
               <div className="underline"></div>
             </div>
-            {image && (
+            {displayImage && (
               <GatsbyImage
-                image={getImage(image.localFile)}
+                image={getImage(displayImage.localFile)}
                 className="image"
                 alt={title}
                 title={title}
@@ -90,7 +103,11 @@ const Article = ({ data, pageContext }) => {
             className="cont-area"
             style={{ background: 'var(--clr-grey-10)' }}
           >
-            <Banner title="Noticia" categories={pageContext.categories} />
+            <Banner
+              title="Noticia"
+              categories={pageContext.categories}
+              image={(displayImage = topics[0].image)}
+            />
           </div>
         </div>
         <BannerAdsense style={{ marginTop: '1rem' }} />
@@ -100,6 +117,10 @@ const Article = ({ data, pageContext }) => {
 }
 
 const Wrapper = styled.section`
+  .top-adsense {
+    margin-top: -2rem;
+    height: 9rem;
+  }
   .category {
     color: var(--clr-white);
     background: var(--clr-grey-4);

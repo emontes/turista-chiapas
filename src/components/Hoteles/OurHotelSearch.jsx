@@ -70,9 +70,9 @@ var Wrapper = styled.section`
     max-width: 88%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 53px;
+    margin-bottom: 5rem;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 
   .find-list {

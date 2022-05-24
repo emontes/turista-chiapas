@@ -9,9 +9,12 @@ Fonts
 */
 
 /* Esto causa un error en producción */
-${
-  '' /* @import url("http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic"); */
-}
+
+ ${
+   '' /* @import url("http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic");  */
+ }
+
+
 
 /*
 =============== 
@@ -44,7 +47,7 @@ Variables
   --clr-black: #222;
   --clr-white: #fff;
   --clr-white-transparency-8: rgba(255, 255, 255, 0.8);
-  --ff-primary: "Lato", sans-serif;
+  --ff-primary: "Arial", sans-serif;
   --ff-secondary: "Open Sans", sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.2rem;

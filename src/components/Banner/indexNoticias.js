@@ -11,10 +11,13 @@ const index = ({
   isHome,
   topics,
   categories,
+  image,
 }) => {
   return (
     <Wrapper>
-      {!isHome && <About title={title} description={description} />}
+      {!isHome && (
+        <About title={title} description={description} image={image} />
+      )}
       {categories && <Categories items={categories} />}
       {topics && <Topics topics={topics} />}
       <BannerAdsense />

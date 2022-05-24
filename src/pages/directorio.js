@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import BannnerAdsense from '../utilities/BannerAdsense'
+import { getSrc } from 'gatsby-plugin-image'
 
 const Directorio = ({ data }) => {
   return (
@@ -14,6 +15,7 @@ const Directorio = ({ data }) => {
       <Seo
         title="Directorio Web"
         description="Directorio de Sitios Web Registrados en el Turista Chiapas y que tienen relación directa con Chiapas"
+        image={getSrc(data.image.localFile.childImageSharp)}
       />
 
       <BannnerAdsense />

@@ -3,6 +3,7 @@ import Layout from '../../components/Layout'
 import Seo from '../../components/Seo'
 import { graphql } from 'gatsby'
 import Noticias from '../../components/Noticias'
+import { getSrc } from 'gatsby-plugin-image'
 
 const noticias = ({ data, pageContext }) => {
   const pageInfo = data.allStrapiNoticia.pageInfo
@@ -21,7 +22,11 @@ const noticias = ({ data, pageContext }) => {
       main="Noticias"
       sub="sobre Chiapas"
     >
-      <Seo title={titleSeo} description={descriptionSeo} />
+      <Seo
+        title={titleSeo}
+        description={descriptionSeo}
+        image={getSrc(data.image.localFile.childImageSharp)}
+      />
 
       <Noticias
         noticias={data.allStrapiNoticia.nodes}
