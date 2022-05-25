@@ -27,7 +27,7 @@ const Article = ({ data, pageContext }) => {
   if (image) {
     displayImage = image
   } else {
-    displayImage = topics[0].image
+    if (topics[0]) displayImage = topics[0].image
   }
 
   return (
@@ -35,12 +35,12 @@ const Article = ({ data, pageContext }) => {
       <Seo
         title={title}
         description={hometext.data.hometext}
-        image={getSrc(displayImage.localFile.childImageSharp)}
+        image={
+          displayImage ? getSrc(displayImage.localFile.childImageSharp) : ''
+        }
       />
       <Wrapper className="section">
-        <div className="top-adsense">
-          <BannerAdsense />
-        </div>
+        <BannerAdsense />
 
         <div className="section-center">
           <article className="cont-area">
@@ -60,9 +60,9 @@ const Article = ({ data, pageContext }) => {
 
               <div className="underline"></div>
             </div>
-            {displayImage && (
+            {image && (
               <GatsbyImage
-                image={getImage(displayImage.localFile)}
+                image={getImage(image.localFile)}
                 className="image"
                 alt={title}
                 title={title}
@@ -106,7 +106,7 @@ const Article = ({ data, pageContext }) => {
             <Banner
               title="Noticia"
               categories={pageContext.categories}
-              image={(displayImage = topics[0].image)}
+              image={topics[0] ? topics[0].image : ''}
             />
           </div>
         </div>
@@ -117,10 +117,6 @@ const Article = ({ data, pageContext }) => {
 }
 
 const Wrapper = styled.section`
-  .top-adsense {
-    margin-top: -2rem;
-    height: 9rem;
-  }
   .category {
     color: var(--clr-white);
     background: var(--clr-grey-4);

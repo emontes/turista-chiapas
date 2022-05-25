@@ -2,9 +2,11 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import Seo from '../../components/Seo'
 import { graphql } from 'gatsby'
+import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 import Noticias from '../../components/Noticias'
 
 const Topic = ({ data, pageContext }) => {
+  console.log('Data en topic template ==-[-=> ', data)
   const pageInfo = data.allStrapiNoticia.pageInfo
 
   let titleSeo = `Noticias del Tema: ${data.topic.Title}`
@@ -13,9 +15,20 @@ const Topic = ({ data, pageContext }) => {
     titleSeo = titleSeo + ' Página. ' + pageInfo.currentPage
     descriptionSeo = 'Página ' + pageInfo.currentPage + ' de ' + descriptionSeo
   }
+  let displayImage = data.image.childImageSharp
+  if (data.topic.image)
+    displayImage = data.topic.image.localFile.childImageSharp
   return (
-    <Layout>
-      <Seo title={titleSeo} description={descriptionSeo} />
+    <Layout
+      heroImg={displayImage}
+      main={data.topic.Title}
+      sub={pageInfo.currentPage > 1 ? `Página ${pageInfo.currentPage}` : ''}
+    >
+      <Seo
+        title={titleSeo}
+        description={descriptionSeo}
+        image={displayImage ? getSrc(displayImage) : ''}
+      />
 
       <Noticias
         noticias={data.allStrapiNoticia.nodes}

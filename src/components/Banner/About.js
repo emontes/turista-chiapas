@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import SocialLinks from '../../constants/social_links'
-import { StaticImage, getImage, GatsbyImage } from 'gatsby-plugin-image'
+import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import Title from './Title'
 import styled from 'styled-components'
 
@@ -11,7 +11,7 @@ const About = (props) => {
   if (props.image) {
     displayImage = props.image
   }
-  console.log('Display image about -------> ', displayImage)
+
   return (
     <Wrapper>
       <Title title={props.title || 'El Turista Chiapas'} />
