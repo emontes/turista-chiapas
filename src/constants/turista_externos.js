@@ -21,8 +21,8 @@ const data = [
   },
   {
     id: 7,
-    text: 'Foros',
-    url: '/foros',
+    text: 'USA',
+    url: 'https://usa.turista.com.mx',
   },
 ]
 

@@ -21,6 +21,8 @@ const noticias = ({ data, pageContext }) => {
       heroImg={data.image.localFile.childImageSharp}
       main="Noticias"
       sub="sobre Chiapas"
+      seoTitle={titleSeo}
+      linkExterno="/noticias"
     >
       <Seo
         title={titleSeo}

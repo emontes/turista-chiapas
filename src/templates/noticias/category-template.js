@@ -14,7 +14,7 @@ const Category = ({ data, pageContext }) => {
     descriptionSeo = 'Página ' + pageInfo.currentPage + ' de ' + descriptionSeo
   }
   return (
-    <Layout>
+    <Layout seoTitle={titleSeo} linkExterno="/noticias">
       <Seo title={titleSeo} description={descriptionSeo} />
 
       <Noticias

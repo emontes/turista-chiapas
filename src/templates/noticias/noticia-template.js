@@ -31,7 +31,7 @@ const Article = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout>
+    <Layout linkExterno="/noticias">
       <Seo
         title={title}
         description={hometext.data.hometext}

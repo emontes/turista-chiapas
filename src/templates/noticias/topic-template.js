@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import Seo from '../../components/Seo'
 import { graphql } from 'gatsby'
-import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
+import { getSrc } from 'gatsby-plugin-image'
 import Noticias from '../../components/Noticias'
 
 const Topic = ({ data, pageContext }) => {
@@ -23,6 +23,8 @@ const Topic = ({ data, pageContext }) => {
       heroImg={displayImage}
       main={data.topic.Title}
       sub={pageInfo.currentPage > 1 ? `Página ${pageInfo.currentPage}` : ''}
+      seoTitle={titleSeo}
+      linkExterno="/noticias"
     >
       <Seo
         title={titleSeo}

@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 
 const privacy = () => {
   return (
-    <Layout>
+    <Layout seoTitle="Aviso de Privacidad">
       <section className="section cont-area">
         <h3>Aviso de Privacidad</h3>
         <p>

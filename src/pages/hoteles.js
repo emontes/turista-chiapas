@@ -11,7 +11,7 @@ import { getSrc } from 'gatsby-plugin-image'
 const hoteles = ({ data }) => {
   const src = getSrc(data.image.localFile.childImageSharp)
   return (
-    <Layout>
+    <Layout seoTitle="Hoteles en Chiapas" linkExterno="/hoteles">
       <Seo
         title="Destinos con Hoteles en Chiapas"
         description="Encuentre el Hotel que busca con el buscador de hoteles, o con le listado de ciudades que tienen Hoteles en Chiapas"

@@ -11,6 +11,8 @@ const Informacion = ({ data }) => {
       heroImg={data.image.localFile.childImageSharp}
       main="Información"
       sub="sobre Chiapas"
+      seoTitle="Información de Chiapas"
+      linkExterno="/informacion"
     >
       <Seo
         title="Información de Chiapas"

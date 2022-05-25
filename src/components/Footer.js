@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import LinksFooter2 from '../constants/links_footer2'
+import TuristaExternos from '../constants/turista_externos'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import SocialLinks from '../constants/social_links'
@@ -8,7 +8,7 @@ import destacadosChiapas from '../constants/footer_des_chiapas'
 import otrosDestinos from '../constants/footer_otros_destinos'
 import { BiChevronRightCircle } from 'react-icons/bi'
 
-const Footer = ({ title = 'El Turista Chiapas' }) => {
+const Footer = ({ title = 'El Turista Chiapas', linkExterno = '' }) => {
   return (
     <Wrapper>
       <div className="footer-1">
@@ -74,11 +74,11 @@ const Footer = ({ title = 'El Turista Chiapas' }) => {
 
       <div className="footer-2">
         <Link to="/">Home</Link> | <Link to="/hoteles">Hoteles</Link> |&nbsp;
-        {LinksFooter2.map((link, i) => {
-          const rowLen = LinksFooter2.length
+        {TuristaExternos.map((link, i) => {
+          const rowLen = TuristaExternos.length
           return (
             <span key={link.id}>
-              <a key={link.id} href={link.url}>
+              <a key={link.id} href={`${link.url}${linkExterno}`}>
                 {link.text}
               </a>
               {rowLen === i + 1 ? '' : ' | '}

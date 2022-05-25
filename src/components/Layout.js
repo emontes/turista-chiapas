@@ -9,7 +9,7 @@ import OuterBottom from '../assets/images/outer_bottom.png'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 
-const Layout = ({ children, heroImg, main, sub }) => {
+const Layout = ({ children, heroImg, main, sub, seoTitle, linkExterno }) => {
   const [isOpen, setIsOpen] = useState(false)
   const toggleSidebar = () => {
     setIsOpen(!isOpen)
@@ -26,7 +26,10 @@ const Layout = ({ children, heroImg, main, sub }) => {
           <div className="outer-bottom">{children}</div>
         </div>
       </Wrapper>
-      <Footer />
+      <Footer
+        title={seoTitle ? seoTitle : 'Turista Chiapas'}
+        linkExterno={linkExterno}
+      />
     </>
   )
 }

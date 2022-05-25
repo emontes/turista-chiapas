@@ -12,6 +12,7 @@ const Tema = ({ data }) => {
       heroImg={data.image.localFile.childImageSharp}
       main="Temas de Noticias"
       sub="sobre Chiapas"
+      linkExterno="/noticias/tema"
     >
       <Seo
         title="Temas de Noticias en Turista Chiapas"

@@ -11,6 +11,8 @@ const Directorio = ({ data }) => {
       heroImg={data.image.localFile.childImageSharp}
       main="Directorio"
       sub="de sitios Web en Chiapas"
+      seoTitle="Directorio Web"
+      linkExterno="/links.html"
     >
       <Seo
         title="Directorio Web"
