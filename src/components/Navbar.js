@@ -51,7 +51,11 @@ const Navbar = ({ toggleSidebar }) => {
           <div className="nav-links">
             {pageLinks.map((link) => {
               return (
-                <Link key={link.id} to={link.url}>
+                <Link
+                  key={link.id}
+                  to={link.url}
+                  activeStyle={{ color: 'var(--clr-red-dark)' }}
+                >
                   {link.text}
                 </Link>
               )

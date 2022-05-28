@@ -2,12 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import About from './About'
 import HotelsBox from './HotelsBox'
+import ListItems from './ListItems'
 
-const index = () => {
+const index = ({ title, description, image, showHotelsBox, listItems1 }) => {
+  console.log('List Items en index banner ----> ', listItems1)
   return (
     <Wrapper>
-      <About />
-      <HotelsBox />
+      <About title={title} description={description} image={image} />
+      {listItems1 && (
+        <ListItems
+          title={listItems1.title}
+          items={listItems1.items}
+          linkTo={listItems1.linkTo}
+        />
+      )}
+      {showHotelsBox && <HotelsBox />}
     </Wrapper>
   )
 }

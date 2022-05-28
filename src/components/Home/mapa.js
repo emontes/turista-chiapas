@@ -26,7 +26,7 @@ const Mapa = () => {
             </p>
           </div>
         </div>
-        <Banner />
+        <Banner showHotelsBox={true} />
       </div>
     </Wrapper>
   )

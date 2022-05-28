@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
+import BannerAdsense from '../utilities/BannerAdsense'
 
 // styles
 const pageStyles = {
@@ -16,6 +17,8 @@ const headingStyles = {
 
 const paragraphStyles = {
   marginBottom: 48,
+  backgroundColor: 'var(--clr-white)',
+  padding: '5rem',
 }
 const codeStyles = {
   color: '#8A6534',
@@ -50,6 +53,7 @@ const NotFoundPage = () => {
           <Link to="/">Ir al home</Link>.
         </p>
       </div>
+      <BannerAdsense />
     </Layout>
   )
 }

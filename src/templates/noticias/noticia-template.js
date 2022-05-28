@@ -34,14 +34,12 @@ const Article = ({ data, pageContext }) => {
     <Layout linkExterno="/noticias">
       <Seo
         title={title}
-        description={hometext.data.hometext}
+        description={hometext.data.hometext.substring(0, 250)}
         image={
           displayImage ? getSrc(displayImage.localFile.childImageSharp) : ''
         }
       />
       <Wrapper className="section">
-        <BannerAdsense />
-
         <div className="section-center">
           <article className="cont-area">
             <div className="post-info">

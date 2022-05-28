@@ -31,7 +31,7 @@ const About = (props) => {
         )}
       </p>
 
-      <SocialLinks styleClass="banner-icons"></SocialLinks>
+      <SocialLinks styleClass="banner-icons" />
     </Wrapper>
   )
 }

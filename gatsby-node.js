@@ -2,11 +2,126 @@ const path = require('path')
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
+  const postPerPage = 16
+  /* ---------------------------------------------------
+     ------------ Información (Sections)  --------------
+     ---------------------------------------------------*/
+  // *** Create Sections Pages ***
+  console.log('Creando páginas de Secciones de Información')
+  const resultSections = await graphql(`
+    {
+      parents: allStrapiSectionArticle(
+        filter: { estado: { Name: { eq: "Chiapas" } } }
+      ) {
+        distinct(field: sections___strapi_parent___slug)
+      }
+      allStrapiSectionArticle(filter: { estado: { Name: { eq: "Chiapas" } } }) {
+        distinct(field: sections___slug)
+      }
+    }
+  `)
+
+  const sections = resultSections.data.parents.distinct
+  const sections2 = resultSections.data.allStrapiSectionArticle.distinct
+
+  sections2.map((item) => {
+    if (!sections.includes(item)) sections.push(item)
+  })
+
+  // Obtiene datos de las Secciones
+  let sectionsFull = []
+  let sectionsMaster = []
+  sections.map(async (item) => {
+    console.log('Obteniendo datos de Section: ', item)
+    const result = await graphql(`
+      {
+        strapiSection(
+          
+          slug: { eq: "${item}" }
+        ) {
+          title
+          slug
+          strapi_parent {
+            slug
+          }
+        }
+      }
+    `)
+    sectionsFull.push(result.data.strapiSection)
+    if (!result.data.strapiSection.strapi_parent)
+      sectionsMaster.push(result.data.strapiSection)
+  })
+
+  // ** Crea el index de información
+  createPage({
+    path: `/informacion`,
+    component: path.resolve(`./src/templates/informacion/index-template.js`),
+    context: {
+      sections: sectionsFull,
+      sectionsMaster: sectionsMaster,
+    },
+  })
+
+  //Crea las páginas de Secciones
+  sections.map(async (item) => {
+    createPage({
+      path: `/informacion/${item}`,
+      component: path.resolve(
+        './src/templates/informacion/section-template.js',
+      ),
+      context: {
+        slug: item,
+        sections: sections,
+        sectionsMaster: sectionsMaster,
+      },
+    })
+  })
+
+  // ** Crea las páginas de Todos los Artículos en Secciones
+
+  const resultSectionArticle = await graphql(
+    `
+      {
+        strapiSection {
+          title
+          slug
+        }
+        allStrapiSectionArticle(
+          filter: { estado: { slug: { eq: "chiapas" } } }
+        ) {
+          nodes {
+            id
+            slug
+          }
+        }
+      }
+    `,
+  )
+
+  const sectionArticles =
+    resultSectionArticle.data.allStrapiSectionArticle.nodes
+  console.log('Creando páginas individuales de Sections Articles.....')
+  if (sectionArticles.length > 0) {
+    sectionArticles.forEach((article) => {
+      // console.log('Creando', article.slug)
+      createPage({
+        path: `/info/${article.slug}`,
+        component: path.resolve(
+          './src/templates/informacion/article-template.js',
+        ),
+        context: {
+          id: article.id,
+          slug: article.slug,
+          sections: sectionsFull,
+          sectionsMaster: sectionsMaster,
+        },
+      })
+    })
+  }
 
   /* ---------------------------------------
      ------------ Noticias  --------------
      --------------------------------------*/
-  const postPerPage = 16
 
   // *** Create Categories Pages ***
   console.log('Creando páginas de Categorías de noticias')

@@ -121,6 +121,8 @@ p {
   max-width: var(--max-width);
   margin: 0 auto;
   margin-bottom: 4rem;
+  background: var(--clr-white);
+  padding: 1rem;
 }
 
 .section-center {

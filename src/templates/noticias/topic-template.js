@@ -6,7 +6,6 @@ import { getSrc } from 'gatsby-plugin-image'
 import Noticias from '../../components/Noticias'
 
 const Topic = ({ data, pageContext }) => {
-  console.log('Data en topic template ==-[-=> ', data)
   const pageInfo = data.allStrapiNoticia.pageInfo
 
   let titleSeo = `Noticias del Tema: ${data.topic.Title}`
