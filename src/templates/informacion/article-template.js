@@ -9,7 +9,10 @@ import Seo from '../../components/Seo'
 import BannerAdsense from '../../utilities/BannerAdsense'
 
 const Article = ({ data, pageContext }) => {
-  const { title, location, content, sections } = data.strapiSectionArticle
+  const { title, content, sections } = data.article
+  let sectionParent = ''
+  if (data.article.sections[0].strapi_parent)
+    sectionParent = data.article.sections[0].strapi_parent
   const listItems1 = {
     title: 'Secciones',
     items: pageContext.sectionsMaster,
@@ -21,7 +24,24 @@ const Article = ({ data, pageContext }) => {
       <Seo title={title} description={content.data.content.substring(0, 250)} />
       <Wrapper className="section">
         <div className="section-center">
-          <article className="cont-area">
+          <article>
+            <div className="breadcrumb">
+              <Link to="/informacion">Información</Link>
+              {' > '}
+              {sectionParent && (
+                <>
+                  <Link to={`/informacion/${sectionParent.slug}`}>
+                    {sectionParent.title}
+                  </Link>
+                  {' > '}
+                </>
+              )}
+              <Link to={`/informacion/${data.article.sections[0].slug}`}>
+                {data.article.sections[0].title}
+              </Link>
+              {' > '}
+              {title}
+            </div>
             <div className="post-info">
               <h1>{title}</h1>
 
@@ -122,8 +142,7 @@ const Wrapper = styled.section`
 
 export const pageQuery = graphql`
   query($id: String) {
-    strapiSectionArticle(id: { eq: $id }) {
-      id
+    article: strapiSectionArticle(id: { eq: $id }) {
       slug
       title
       content {
@@ -131,12 +150,13 @@ export const pageQuery = graphql`
           content
         }
       }
-      location {
-        name
-      }
       sections {
         slug
         title
+        strapi_parent {
+          title
+          slug
+        }
       }
     }
   }

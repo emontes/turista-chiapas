@@ -33,14 +33,21 @@ const Section = ({ data, pageContext }) => {
       >
         <div className="section-center">
           <div>
-            {sectionParent && (
-              <div>
-                <Link to={`/informacion/${sectionParent.slug}`}>
-                  {sectionParent.title} {' > '}{' '}
-                </Link>{' '}
-                {sectionTitle}
-              </div>
-            )}
+            <div className="breadcrumb">
+              <Link to="/informacion">Información</Link>
+              {' > '}
+              {sectionParent && (
+                <>
+                  <Link to={`/informacion/${sectionParent.slug}`}>
+                    {sectionParent.title}
+                  </Link>
+                  {' > '}
+                </>
+              )}
+
+              {sectionTitle}
+            </div>
+
             <h3 className="section-title">{sectionTitle}</h3>
             {sections.length > 0 && (
               <>

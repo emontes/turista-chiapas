@@ -164,6 +164,12 @@ p {
     background: var(--clr-primary-9);
   }
 
+.breadcrumb {
+  padding: .8rem 1.5rem;
+  margin-bottom: 2rem;
+  background: var(--clr-grey-10) ;
+  border-radius: var(--radius);
+}
 /* social links */
 
 .footer-icons {
