@@ -10,44 +10,14 @@ const BreadLink = ({ category }) => {
   )
 }
 
-const Breadcrumbs = ({ category }) => {
+const Breadcrumbs = ({ category, tree }) => {
   return (
     <div className="breadcrumb">
       <Link to="/links.html">Directorio</Link>
       {' > '}
-
-      {category.link_categories.length > 0 && (
-        <>
-          {category.link_categories[0].link_categories.length > 0 && (
-            <>
-              {category.link_categories[0].link_categories[0].link_categories
-                .length > 0 && (
-                <>
-                  {category.link_categories[0].link_categories[0]
-                    .link_categories[0].link_categories.length > 0 && (
-                    <BreadLink
-                      category={
-                        category.link_categories[0].link_categories[0]
-                          .link_categories[0].link_categories[0]
-                      }
-                    />
-                  )}
-                  <BreadLink
-                    category={
-                      category.link_categories[0].link_categories[0]
-                        .link_categories[0]
-                    }
-                  />
-                </>
-              )}
-              <BreadLink
-                category={category.link_categories[0].link_categories[0]}
-              />
-            </>
-          )}
-          <BreadLink category={category.link_categories[0]} />
-        </>
-      )}
+      {tree.map((item) => {
+        return <BreadLink category={item} />
+      })}
       {category.title}
     </div>
   )

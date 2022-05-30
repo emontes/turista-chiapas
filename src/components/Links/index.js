@@ -7,7 +7,14 @@ import LinkCard from './link-card'
 import Title from './Title'
 import Breadcrumbs from './Breadcrumbs'
 
-const Links = ({ category, linksCategories, links = [], title, subtitle }) => {
+const Links = ({
+  category,
+  tree,
+  linksCategories,
+  links = [],
+  title,
+  subtitle,
+}) => {
   return (
     <Wrapper className="nav_main">
       <h2 className="nav_main--h2">{title}</h2>
@@ -16,7 +23,7 @@ const Links = ({ category, linksCategories, links = [], title, subtitle }) => {
           <div className="section-center">
             <div>
               {category ? (
-                <Breadcrumbs category={category} />
+                <Breadcrumbs category={category} tree={tree} />
               ) : (
                 <h3 className="section-title">{subtitle}</h3>
               )}

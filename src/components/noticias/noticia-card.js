@@ -22,9 +22,12 @@ const NoticiaCard = ({ noticia }) => {
     imagen = noticia.image.localFile
   }
 
+  let slug = `/${noticia.dateslug}/${noticia.slug}`
+  if (noticia.slugOld) slug = `/${noticia.slugOld}`
+
   return (
     <Wraper className="cont-area">
-      <Link to={`/${noticia.dateslug}/${noticia.slug}`}>
+      <Link to={slug}>
         <h3>{noticia.title}</h3>
 
         {imagen && (
@@ -117,6 +120,7 @@ export const query = graphql`
   fragment NoticiaCard on STRAPI_NOTICIA {
     id
     slug
+    slugOld
     title
     date(formatString: "ddd D MMM yy", locale: "es")
     dateslug: date(formatString: "yy/M")

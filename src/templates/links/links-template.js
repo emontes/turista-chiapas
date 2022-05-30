@@ -14,6 +14,7 @@ const LinksPage = ({ data }) => {
   if (category.link_categories.length > 0) {
     tree.push(category.link_categories[0])
 
+    // Obtiene el Arbol de categorías hasta en 5 niveles (para el site de todo México)
     if (category.link_categories[0].link_categories.length > 0) {
       tree.push(category.link_categories[0].link_categories[0])
       if (
@@ -36,8 +37,20 @@ const LinksPage = ({ data }) => {
     }
   }
 
+  console.log('El famos árbol', tree)
+
+  //Para hacer el arbol de un estado le quitamos 2 niveles ('Estados de la República / Chiapas')
+  let treeLocal = []
+  tree.map((item, index) => {
+    if (index > 1) {
+      treeLocal.push(item)
+    }
+  })
+
+  tree = treeLocal
+
   tree = tree.reverse()
-  let seoTitle = ''
+  let seoTitle = 'Enlaces '
   let seoDescription = 'Directorio de sitios web de '
   tree.map((item) => {
     seoTitle = seoTitle + item.title + ' '

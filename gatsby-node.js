@@ -9,10 +9,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
      --------------------------------*/
   const resultLinks = await graphql(`
     {
-      categories: allStrapiLinkCategory {
+      categories: allStrapiLinkCategory(
+        filter: {
+          link_categories: { elemMatch: { slug: { eq: "link-40.html" } } }
+        }
+      ) {
         nodes {
           title
           slug
+          slugOld
           link_categories {
             strapi_id
             slug
@@ -35,7 +40,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         slug: item.slug,
       },
     })
-    if (item.link_categories.length === 0) linksRoot.push(item)
+
+    //Este if es para cuando se trata de México Global
+    //if (item.link_categories.length === 0) linksRoot.push(item)
+    if (item.link_categories[0].slug === 'link-40.html') linksRoot.push(item)
   })
 
   //Crea página del Index de Directorio (links)
@@ -319,6 +327,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nodes {
             id
             slug
+            slugOld
             dateslug: date(formatString: "yy/M")
           }
         }
@@ -344,12 +353,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   console.log('Creando páginas individuales de artículos.....')
   if (articles.length > 0) {
     articles.forEach((article) => {
-      // console.log('Creando', article.slug)
+      let path = `/${article.dateslug}/${article.slug}`
+
+      if (article.slugOld) {
+        path = article.slugOld
+      }
+      console.log('Creando', path)
       createPage({
-        path: `/${article.dateslug}/${article.slug}`,
+        path: path,
         component: articlePost,
         context: {
           id: article.id,
+          slug: path,
           topics: topicsFull,
           categories: categoriesFull,
         },
