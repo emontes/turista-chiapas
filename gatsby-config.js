@@ -12,6 +12,8 @@ const strapiConfig = {
     'topic',
     'section',
     'section-article',
+    'link',
+    'link-category',
   ],
   singleTypes: [],
 }

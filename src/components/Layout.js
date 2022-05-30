@@ -8,6 +8,7 @@ import OuterTop from '../assets/images/outer_top.png'
 import OuterBottom from '../assets/images/outer_bottom.png'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
+import device from '../assets/themes/device'
 
 const Layout = ({ children, heroImg, main, sub, seoTitle, linkExterno }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -49,6 +50,13 @@ const Wrapper = styled.main`
   .outer-bottom {
     background: url(${OuterBottom}) no-repeat right bottom;
     width: 100%;
-    padding: 2rem;
+    padding: 0rem;
+    @media ${device.tablet} {
+      padding: 1rem;
+
+      @media ${device.laptop} {
+        padding: 2rem;
+      }
+    }
   }
 `

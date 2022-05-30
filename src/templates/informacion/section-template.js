@@ -27,69 +27,73 @@ const Section = ({ data, pageContext }) => {
         title={`${sectionTitle} | Información`}
         description={seoDescription}
       />
-      <section
-        className="section cont-area"
-        style={{ background: 'var(--clr-white' }}
-      >
-        <div className="section-center">
-          <div>
-            <div className="breadcrumb">
-              <Link to="/informacion">Información</Link>
-              {' > '}
-              {sectionParent && (
-                <>
-                  <Link to={`/informacion/${sectionParent.slug}`}>
-                    {sectionParent.title}
-                  </Link>
+      <section className=" nav_main">
+        <h2 className="nav_main--h2">{sectionTitle}</h2>
+        <div className="economy_bg">
+          <div className="nav_link_details">
+            <div className="section-center">
+              <div>
+                <div className="breadcrumb">
+                  <Link to="/informacion">Información</Link>
                   {' > '}
-                </>
-              )}
+                  {sectionParent && (
+                    <>
+                      <Link to={`/informacion/${sectionParent.slug}`}>
+                        {sectionParent.title}
+                      </Link>
+                      {' > '}
+                    </>
+                  )}
 
-              {sectionTitle}
+                  {sectionTitle}
+                </div>
+
+                <h3 className="section-title">{sectionTitle}</h3>
+                {sections.length > 0 && (
+                  <>
+                    <h4>Secciones</h4>
+                    <ul>
+                      {sections.map((item) => {
+                        if (pageContext.sections.includes(item.slug))
+                          return (
+                            <li key={item.slug}>
+                              <Link to={`/informacion/${item.slug}`}>
+                                {item.title}
+                              </Link>
+                            </li>
+                          )
+                      })}
+                    </ul>
+                    <br />
+                  </>
+                )}
+
+                {articles.length > 0 && (
+                  <>
+                    <h4>Artículos</h4>
+                    <ul>
+                      {articles.map((item) => {
+                        return (
+                          <li key={item.slug}>
+                            <Link to={`/info/${item.slug}`}>{item.title}</Link>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </>
+                )}
+
+                <BannerAdsense />
+              </div>
+              <div style={{ padding: '0 1rem 1rem' }}>
+                <Banner
+                  title="Información"
+                  description={seoDescription}
+                  listItems1={listItems1}
+                />
+              </div>
             </div>
-
-            <h3 className="section-title">{sectionTitle}</h3>
-            {sections.length > 0 && (
-              <>
-                <h4>Secciones</h4>
-                <ul>
-                  {sections.map((item) => {
-                    if (pageContext.sections.includes(item.slug))
-                      return (
-                        <li key={item.slug}>
-                          <Link to={`/informacion/${item.slug}`}>
-                            {item.title}
-                          </Link>
-                        </li>
-                      )
-                  })}
-                </ul>
-                <br />
-              </>
-            )}
-
-            {articles.length > 0 && (
-              <>
-                <h4>Artículos</h4>
-                <ul>
-                  {articles.map((item) => {
-                    return (
-                      <li key={item.slug}>
-                        <Link to={`/info/${item.slug}`}>{item.title}</Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </>
-            )}
-
-            <BannerAdsense />
           </div>
-          <Banner
-            title="Información"
-            description={seoDescription}
-            listItems1={listItems1}
-          />
         </div>
       </section>
     </Layout>

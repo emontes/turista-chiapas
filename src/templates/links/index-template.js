@@ -1,11 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Seo from '../components/Seo'
-import BannnerAdsense from '../utilities/BannerAdsense'
+import Layout from '../../components/Layout'
+import Seo from '../../components/Seo'
+import BannnerAdsense from '../../utilities/BannerAdsense'
 import { getSrc } from 'gatsby-plugin-image'
+import Links from '../../components/Links'
 
-const Directorio = ({ data }) => {
+const Directorio = ({ data, pageContext }) => {
   return (
     <Layout
       heroImg={data.image.localFile.childImageSharp}
@@ -19,7 +20,11 @@ const Directorio = ({ data }) => {
         description="Directorio de Sitios Web Registrados en el Turista Chiapas y que tienen relación directa con Chiapas"
         image={getSrc(data.image.localFile.childImageSharp)}
       />
-
+      <Links
+        title="Directorio del Turista Chiapas"
+        subtitle="Bienvenido a nuestro directorio"
+        linksCategories={pageContext.linksRoot}
+      />
       <BannnerAdsense />
     </Layout>
   )

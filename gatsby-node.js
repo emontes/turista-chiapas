@@ -3,6 +3,50 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const postPerPage = 16
+
+  /* ---------------------------------
+     ------------ Links --------------
+     --------------------------------*/
+  const resultLinks = await graphql(`
+    {
+      categories: allStrapiLinkCategory {
+        nodes {
+          title
+          slug
+          link_categories {
+            strapi_id
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  const links = resultLinks.data.categories.nodes
+
+  let linksRoot = []
+  //Crea las páginas de las Links
+  links.map(async (item) => {
+    console.log('Creando página de Links: ', item.slug)
+    createPage({
+      path: `/${item.slug}`,
+      component: path.resolve('./src/templates/links/links-template.js'),
+      context: {
+        slug: item.slug,
+      },
+    })
+    if (item.link_categories.length === 0) linksRoot.push(item)
+  })
+
+  //Crea página del Index de Directorio (links)
+  createPage({
+    path: `/links.html`,
+    component: path.resolve('./src/templates/links/index-template.js'),
+    context: {
+      linksRoot: linksRoot,
+    },
+  })
+
   /* ---------------------------------------------------
      ------------ Información (Sections)  --------------
      ---------------------------------------------------*/

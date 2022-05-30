@@ -23,7 +23,7 @@ const data = [
   {
     id: 5,
     text: 'directorio',
-    url: '/directorio/',
+    url: '/links.html',
   },
 ]
 

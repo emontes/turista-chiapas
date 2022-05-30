@@ -5,7 +5,6 @@ import HotelsBox from './HotelsBox'
 import ListItems from './ListItems'
 
 const index = ({ title, description, image, showHotelsBox, listItems1 }) => {
-  console.log('List Items en index banner ----> ', listItems1)
   return (
     <Wrapper>
       <About title={title} description={description} image={image} />

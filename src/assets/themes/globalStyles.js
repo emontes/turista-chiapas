@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import device from './device'
+import hedingBg from '../images/heading_bg.jpg'
 
 const GlobalStyle = createGlobalStyle`
 /*
@@ -23,7 +24,7 @@ Variables
 */
 :root {
   /* dark shades of primary color*/
-  --clr-primary-1: #294029;
+  --clr-primary-1: #036544;;
   --clr-primary-2: #477246;
   --clr-primary-5: hsl(118, 25%, 43%);
   /* lighter shades of primary color */
@@ -42,7 +43,7 @@ Variables
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
   --clr-green-dark: hsl(125, 67%, 35%);
-  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-dark: hsl(356, 80%, 46%);
   --clr-red-light: hsl(360, 71%, 66%);
   --clr-black: #222;
   --clr-white: #fff;
@@ -134,11 +135,12 @@ p {
 }
 
 .section-title {
-  font-weight: 700;
-  text-transform: capitalize;
-  color: #e12d39;
-  font-size: 1.25rem;
-  margin-bottom: 2.5rem;
+  font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--clr-red-dark);
+    padding: 0 0 12px 0;
+    margin: 0;
 }
 
 .cont-area {
@@ -149,6 +151,39 @@ p {
     position: relative;
     padding: 1rem;
 }
+
+.nav_main {
+background: var(--clr-primary-1);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  position: relative;
+  
+}
+.nav_main--h2 {
+  background: url(${hedingBg}) repeat-x left top;
+    margin:0px 0 .65rem 0;
+    font-size: 2.2rem;
+    font-weight: normal;
+    line-height: 62px;
+    color: var(--clr-white);
+    padding: 0 0 0 18px;
+    text-transform: uppercase;
+    border-radius: 5px 5px 0px 0px;
+    position: relative;
+    }
+
+.economy_bg {
+  background: var(--clr-primary-10);
+  margin: 0 10px 0 10px;
+  padding: 5px;
+}
+.nav_link_details{
+  background: var(--clr-white);
+  padding: 10px 0 0 15px;
+}
+  
+  
 
 .category-menu {
     font-size: 1.5rem;
