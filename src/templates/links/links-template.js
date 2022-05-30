@@ -60,7 +60,7 @@ const LinksPage = ({ data }) => {
   seoDescription = seoDescription + category.title
 
   return (
-    <Layout>
+    <Layout linkExterno="/links.html">
       <Seo
         title={seoTitle}
         description={seoDescription}

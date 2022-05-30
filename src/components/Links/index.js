@@ -34,18 +34,23 @@ const Links = ({
                     Seleccione una categoría.
                   </p>
                   <ul>
-                    {linksCategories.map((item) => (
-                      <li key={item.slug}>
-                        <Link
-                          className={`category ${
-                            item.featured ? 'featured' : ''
-                          }`}
-                          to={`/${item.slug}`}
-                        >
-                          <FcFolder /> {item.title}
-                        </Link>
-                      </li>
-                    ))}
+                    {linksCategories.map((item) => {
+                      let slug = item.slug
+                      // ** este solamente se aplica en provincia como chiapas
+                      if (item.slugOld) slug = item.slugOld
+                      return (
+                        <li key={item.slug}>
+                          <Link
+                            className={`category ${
+                              item.featured ? 'featured' : ''
+                            }`}
+                            to={`/${slug}`}
+                          >
+                            <FcFolder /> {item.title}
+                          </Link>
+                        </li>
+                      )
+                    })}
                   </ul>
                   {links.length > 0 && <Title title="Listado de Sitios Web" />}
                 </>

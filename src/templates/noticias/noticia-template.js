@@ -41,7 +41,7 @@ const Article = ({ data, pageContext }) => {
       />
       <Wrapper className="section">
         <div className="section-center">
-          <article className="cont-area">
+          <article className="article">
             <div className="post-info">
               {location && <span className="category">{location.name}</span>}
 
@@ -115,6 +115,10 @@ const Article = ({ data, pageContext }) => {
 }
 
 const Wrapper = styled.section`
+  .article {
+    padding: 0 1rem;
+    margin: 0 0 2rem;
+  }
   .category {
     color: var(--clr-white);
     background: var(--clr-grey-4);

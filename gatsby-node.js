@@ -15,6 +15,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       ) {
         nodes {
+          id
           title
           slug
           slugOld
@@ -32,11 +33,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   let linksRoot = []
   //Crea las páginas de las Links
   links.map(async (item) => {
-    console.log('Creando página de Links: ', item.slug)
+    let slug = item.slug
+    // Esto para los links de provincia (por ejemplo chiapas, se les pone old slug y el slug como link-chis-1)
+    if (item.slugOld) slug = item.slugOld
+    console.log('Creando página de Links: ', slug)
     createPage({
-      path: `/${item.slug}`,
+      path: `/${slug}`,
       component: path.resolve('./src/templates/links/links-template.js'),
       context: {
+        id: item.id,
         slug: item.slug,
       },
     })
