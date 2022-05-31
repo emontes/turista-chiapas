@@ -37,8 +37,6 @@ const LinksPage = ({ data }) => {
     }
   }
 
-  console.log('El famos árbol', tree)
-
   //Para hacer el arbol de un estado le quitamos 2 niveles ('Estados de la República / Chiapas')
   let treeLocal = []
   tree.map((item, index) => {

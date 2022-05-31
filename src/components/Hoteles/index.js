@@ -1,12 +1,16 @@
 import React from 'react'
 import InsertaScript from '../../utilities/InsertaScript'
+import Advantages from './Home/Advantages'
+import Map from './Home/Map'
+import OurHotelSearch from './Home/OurHotelSearch'
 
 const Hoteles = ({ image }) => {
-  const liga =
-    '//www.travelpayouts.com/widgets/aaff9e1c12195d0a95de1c140e9b46ce.js?v=2190'
   return (
-    <section style={{ background: 'var(--clr-white)', padding: '2rem' }}>
-      <InsertaScript liga={liga} />
+    <section>
+      <Map />
+      <Advantages />
+
+      <OurHotelSearch />
     </section>
   )
 }

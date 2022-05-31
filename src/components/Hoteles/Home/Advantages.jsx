@@ -1,6 +1,6 @@
 import React from 'react'
-import Title from '../Title'
-import advantages from '../../constants/Hoteles/advantages'
+import Title from '../../Title'
+import advantages from '../../../constants/Hoteles/advantages'
 import styled from 'styled-components'
 
 const Advantages = () => {

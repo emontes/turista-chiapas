@@ -3,7 +3,16 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-const Hero = ({ bgColor, image, main, sub, btnLink, btnText, children }) => {
+const Hero = ({
+  bgColor,
+  image,
+  component,
+  main,
+  sub,
+  btnLink,
+  btnText,
+  children,
+}) => {
   return (
     <Wrapper style={{ backgroundColor: `${bgColor || 'var(--clr-white)'}` }}>
       <div className="hero">
@@ -15,6 +24,7 @@ const Hero = ({ bgColor, image, main, sub, btnLink, btnText, children }) => {
           layout="constrained"
         />
         <div className="hero-container">
+          {component && component}
           <div className="header__text-box">
             {main && (
               <h1 className="heading-primary">
