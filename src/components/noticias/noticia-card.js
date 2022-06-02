@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 import { FaRegClock } from 'react-icons/fa'
+import device from '../../assets/themes/device'
 
 const NoticiaCard = ({ noticia }) => {
   const topic = noticia.topics[0]
@@ -28,25 +29,27 @@ const NoticiaCard = ({ noticia }) => {
   return (
     <Wraper className="cont-area">
       <Link to={slug}>
-        <h3>{noticia.title}</h3>
+        <div className="content">
+          {imagen && (
+            <GatsbyImage
+              image={getImage(imagen)}
+              className="topic-image"
+              alt={topic.Title}
+              title={topic.Title}
+            />
+          )}
 
-        {imagen && (
-          <GatsbyImage
-            image={getImage(imagen)}
-            className="topic-image"
-            alt={topic.Title}
-            title={topic.Title}
-          />
-        )}
-
-        {anyo < 2018 ? (
-          <div dangerouslySetInnerHTML={{ __html: hometext }} />
-        ) : (
-          <>
-            <ReactMarkdown children={hometext} />
-          </>
-        )}
-
+          <div className="text">
+            <h3>{noticia.title}</h3>
+            {anyo < 2018 ? (
+              <div dangerouslySetInnerHTML={{ __html: hometext }} />
+            ) : (
+              <>
+                <ReactMarkdown children={hometext} />
+              </>
+            )}
+          </div>
+        </div>
         <footer>
           <span className="date">
             <FaRegClock className="icon"></FaRegClock>
@@ -67,24 +70,46 @@ const Wraper = styled.article`
   margin-bottom: 1.5rem;
   padding: 2rem;
   box-shadow: var(--light-shadow);
-  background-color: var(--clr-grey-10);
+  background-color: var(--clr-white);
   border-radius: var(--radius);
   transition: var(--transition);
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.3rem;
-  }
 
   :hover {
-    background-color: var(--clr-white);
+    background-color: var(--clr-grey-10);
     box-shadow: var(--dark-shadow);
   }
 
+  .content {
+    display: flex;
+    flex-direction: column;
+    @media ${device.tablet} {
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.3rem;
+    :hover {
+      color: var(--clr-red-dark);
+    }
+  }
+
+  .text {
+    @media ${device.tablet} {
+      width: 70%;
+    }
+  }
+
   .topic-image {
-    width: 116px;
     border-radius: var(--radius);
     float: left;
     margin-right: 1rem;
+    @media ${device.tablet} {
+      height: 12rem;
+      width: 12rem;
+    }
   }
 
   .category {
