@@ -29,4 +29,8 @@ const Wrapper = styled.div`
       border-bottom: 2px solid #1a0dab;
     }
   }
+
+  p {
+    font-size: 1rem;
+  }
 `

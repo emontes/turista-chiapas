@@ -5,20 +5,46 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const postPerPage = 16
 
   /* ---------------------------------
+     ------------ Hoteles --------------
+     --------------------------------*/
+  const resultDestinos = await graphql(`
+    {
+      locations: allStrapiHotelLocation(
+        filter: { location: { estado: { Name: { eq: "Chiapas" } } } }
+      ) {
+        nodes {
+          id
+          slug
+        }
+      }
+    }
+  `)
+
+  const destinos = resultDestinos.data.locations.nodes
+
+  destinos.map(async (item) => {
+    createPage({
+      path: `/${item.slug}`,
+      component: path.resolve('./src/templates/hoteles/locations-template.js'),
+      context: {
+        id: item.id,
+        slug: item.slug,
+      },
+    })
+  })
+
+  /* ---------------------------------
      ------------ Links --------------
      --------------------------------*/
   const resultLinks = await graphql(`
     {
       categories: allStrapiLinkCategory(
-        filter: {
-          link_categories: { elemMatch: { slug: { eq: "link-40.html" } } }
-        }
+        filter: { slug: { regex: "/.*link-chis.*/" } }
       ) {
         nodes {
           id
           title
           slug
-          slugOld
           link_categories {
             strapi_id
             slug
@@ -35,7 +61,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   links.map(async (item) => {
     let slug = item.slug
     // Esto para los links de provincia (por ejemplo chiapas, se les pone old slug y el slug como link-chis-1)
-    if (item.slugOld) slug = item.slugOld
+
     console.log('Creando página de Links: ', slug)
     createPage({
       path: `/${slug}`,
@@ -363,7 +389,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       if (article.slugOld) {
         path = article.slugOld
       }
-      console.log('Creando', path)
+      // console.log('Creando', path)
       createPage({
         path: path,
         component: articlePost,

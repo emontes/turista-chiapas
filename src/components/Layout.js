@@ -12,12 +12,14 @@ import device from '../assets/themes/device'
 
 const Layout = ({
   children,
+  topComponent, //optional component for substitute top banner
   heroImg,
-  heroComponent,
-  main,
-  sub,
-  seoTitle,
-  linkExterno,
+  heroComponent, //optional component inside hero Image
+  main, //main Title in hero Image
+  sub, //Subtitle in hero Image
+  seoTitle, //title for The h1 in footer
+  linkExterno, // is Added to the external sites
+  sinFondo, //define no background and no padding for the children
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const toggleSidebar = () => {
@@ -31,12 +33,20 @@ const Layout = ({
       {heroImg && (
         <Hero image={heroImg} component={heroComponent} main={main} sub={sub} />
       )}
+      {topComponent && topComponent}
 
-      <Wrapper>
-        <div className="outer-top">
-          <div className="outer-bottom">{children}</div>
-        </div>
-      </Wrapper>
+      {sinFondo ? (
+        <Wrapper>
+          <div>{children}</div>
+        </Wrapper>
+      ) : (
+        <Wrapper>
+          <div className="outer-top">
+            <div className="outer-bottom">{children}</div>
+          </div>
+        </Wrapper>
+      )}
+
       <Footer
         title={seoTitle ? seoTitle : 'Turista Chiapas'}
         linkExterno={linkExterno}

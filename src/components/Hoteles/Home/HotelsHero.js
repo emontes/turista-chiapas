@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import FormSearchHotels from './FormSearchHotels'
+import FormSearchHotels from '../FormSearchHotels'
 import DestinationCard from './destination-card'
-import device from '../../assets/themes/device'
+import device from '../../../assets/themes/device'
 
 const Hoteles = ({ destino1, destino2 }) => {
   return (
@@ -21,7 +21,7 @@ export default Hoteles
 
 const Wrapper = styled.section`
   display: flex;
-  align-items: flex-top;
+  align-items: center;
   justify-content: space-around;
 
   .featured {

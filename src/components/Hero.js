@@ -56,7 +56,8 @@ const Wrapper = styled.header`
     height: 100%;
   }
   .hero {
-    height: 40vh;
+    height: 60vh;
+
     background-color: var(--clr-primary-9);
     background-size: cover;
     background-position: top;

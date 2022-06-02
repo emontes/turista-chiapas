@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
-import HotelesHero from '../components/Hoteles/HotelsHero'
+import HotelesHero from '../components/Hoteles/Home/HotelsHero'
 import Hoteles from '../components/Hoteles'
 import { getSrc } from 'gatsby-plugin-image'
 

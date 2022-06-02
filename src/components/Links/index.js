@@ -36,8 +36,7 @@ const Links = ({
                   <ul>
                     {linksCategories.map((item) => {
                       let slug = item.slug
-                      // ** este solamente se aplica en provincia como chiapas
-                      if (item.slugOld) slug = item.slugOld
+
                       return (
                         <li key={item.slug}>
                           <Link

@@ -115,6 +115,7 @@ a {
 p {
   margin-bottom: 1.4rem;
   color: var(--clr-grey-5);
+  font-size: 1.3rem;
 }
 h1,
 h2,

@@ -37,23 +37,25 @@ const LinksPage = ({ data }) => {
     }
   }
 
-  //Para hacer el arbol de un estado le quitamos 2 niveles ('Estados de la República / Chiapas')
-  let treeLocal = []
-  tree.map((item, index) => {
-    if (index > 1) {
-      treeLocal.push(item)
-    }
-  })
-
-  tree = treeLocal
-
   tree = tree.reverse()
-  let seoTitle = 'Enlaces '
+  //Para hacer el arbol de un estado le quitamos 2 niveles ('Estados de la República / Chiapas')
+  if (tree.length > 0) {
+    let treeLocal = []
+    for (let [i, item] of tree.entries()) {
+      if (i > 1) {
+        treeLocal.push(item)
+      }
+    }
+    tree = treeLocal
+  }
+
+  let seoTitle = 'Enlaces en '
   let seoDescription = 'Directorio de sitios web de '
-  tree.map((item) => {
+
+  for (let item of tree) {
     seoTitle = seoTitle + item.title + ' '
     seoDescription = seoDescription + item.title + ' '
-  })
+  }
   seoTitle = seoTitle + category.title
   seoDescription = seoDescription + category.title
 

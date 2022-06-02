@@ -1,18 +1,18 @@
 const data = [
   {
     id: 2,
-    text: 'San Cristóbal de Las Casas',
-    url: '/',
+    text: 'San Cristóbal de las Casas',
+    url: '/hoteles-san+cristobal-2.html',
   },
   {
     id: 1,
     text: 'Tuxtla Gutiérrez',
-    url: '/',
+    url: '/hoteles-tuxtla+gutierrez-1.html',
   },
   {
     id: 3,
     text: 'Comitán',
-    url: '/',
+    url: '/hoteles-comitan-3.html',
   },
   // {
   //   id: 4,
@@ -22,7 +22,7 @@ const data = [
   {
     id: 5,
     text: 'Palenque',
-    url: '/',
+    url: '/hoteles-palenque-5.html',
   },
 ]
 

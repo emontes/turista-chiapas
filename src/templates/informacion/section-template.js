@@ -54,7 +54,7 @@ const Section = ({ data, pageContext }) => {
                     <h4>Secciones</h4>
                     <ul>
                       {sections.map((item) => {
-                        if (pageContext.sections.includes(item.slug))
+                        if (pageContext.sections.includes(item.slug)) {
                           return (
                             <li key={item.slug}>
                               <Link to={`/informacion/${item.slug}`}>
@@ -62,6 +62,7 @@ const Section = ({ data, pageContext }) => {
                               </Link>
                             </li>
                           )
+                        } else return ''
                       })}
                     </ul>
                     <br />

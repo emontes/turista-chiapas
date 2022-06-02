@@ -1,19 +1,18 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import device from '../../assets/themes/device'
+import device from '../../../assets/themes/device'
 
 const Card = ({ destino }) => {
-  console.log('Destino desde Destination Carde ---> ', destino)
   return (
     <Wrapper to={`/${destino.slug}`}>
       <div className="card-image">
         <GatsbyImage
           image={getImage(destino.image.localFile)}
           className="img"
-          alt={destino.location.name}
-          title={destino.location.name}
+          alt={`Hoteles en ${destino.location.name}`}
+          title={`Hoteles en ${destino.location.name}`}
         />
       </div>
 
@@ -33,16 +32,17 @@ const Wrapper = styled(Link)`
   color: var(--clr-white);
   transition: var(--transition);
   display: none;
-
+  flex-basis: 25%;
   @media ${device.laptop} {
     display: block;
+  }
+  @media ${device.laptopL} {
+    flex-basis: 15%;
   }
   :hover {
     box-shadow: var(--dark-shadow);
     color: var(--clr-primary-7);
   }
-
-  flex-basis: 20%;
 
   .card-title {
     font-size: 2rem;
@@ -66,7 +66,7 @@ const Wrapper = styled(Link)`
       :hover {
         transition: var(--transition);
         opacity: 0.9;
-        transform: scale(1.2);
+        transform: scale(1.1);
       }
     }
   }
