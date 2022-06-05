@@ -24,8 +24,8 @@ const EstadoTemplate = ({ pageContext: { Name }, data }) => {
 }
 
 export const query = graphql`
-  query getEstadote($Name: String) {
-    strapiEstado(Name: { eq: $Name }) {
+  query getEstadote($slug: String) {
+    strapiEstado(slug: { eq: $slug }) {
       Name
       latitude
       longitude

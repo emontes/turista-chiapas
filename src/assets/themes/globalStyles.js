@@ -48,7 +48,7 @@ Variables
   --clr-black: #222;
   --clr-white: #fff;
   --clr-white-transparency-8: rgba(255, 255, 255, 0.8);
-  --ff-primary: "Arial", sans-serif;
+  --ff-primary:  "Helvetica Neue", Helvetica, Arial, sans-serif;
   --ff-secondary: "Open Sans", sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.2rem;
@@ -197,6 +197,28 @@ h4 {
     box-shadow: 0px 0px 1px #d3d3d3;
     position: relative;
     padding: 1rem;
+}
+
+table {
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: var(--clr-grey-9);
+tr:nth-child(odd) {background-color: var(--clr-grey-10);}
+td,th {padding: 15px 5px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;}
+    font-size: 1.2rem;
+th {
+  background: var(--clr-primary-2);
+  color: var(--clr-white);
+  
+  font-size: 1.4rem;
+  }
+a {color: #039be5; :hover{color: var(--clr-red-light);}}
 }
 
 .nav_main {

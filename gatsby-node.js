@@ -13,7 +13,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         filter: { location: { estado: { Name: { eq: "Chiapas" } } } }
       ) {
         nodes {
-          id
+          id: hotellookId
           slug
         }
       }
@@ -22,14 +22,37 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const destinos = resultDestinos.data.locations.nodes
 
+  const locationPages = [
+    'lista',
+    'mapa',
+    'ofertas',
+    'economicos',
+    'completos',
+    'grandes',
+    'travel',
+  ]
   destinos.map(async (item) => {
     createPage({
-      path: `/${item.slug}`,
-      component: path.resolve('./src/templates/hoteles/locations-template.js'),
+      path: `/${item.slug}.html`,
+      component: path.resolve(
+        './src/templates/hoteles/locations/home-template.js',
+      ),
       context: {
         id: item.id,
         slug: item.slug,
       },
+    })
+    locationPages.map(async (page) => {
+      createPage({
+        path: `/${item.slug}-${page}.html`,
+        component: path.resolve(
+          `./src/templates/hoteles/locations/${page}-template.js`,
+        ),
+        context: {
+          id: item.id,
+          slug: item.slug,
+        },
+      })
     })
   })
 
@@ -205,6 +228,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   /* ---------------------------------------
      ------------ Noticias  --------------
      --------------------------------------*/
+
+  const filtroMexico = 'filter: { estado: {Name: {nin: [ "Chiapas"] }}}' // excluye chiapas
+  const filtroChiapas = 'filter: { estado: { Name: { eq: "Chiapas" } } }'
 
   // *** Create Categories Pages ***
   console.log('Creando páginas de Categorías de noticias')

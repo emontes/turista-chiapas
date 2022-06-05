@@ -1,0 +1,563 @@
+{
+  "gen_timestamp": 1653912822.1557996273,
+  "pois": [
+    {
+      "id": 325500,
+      "rating": 0,
+      "category": "airport",
+      "name": "Palenque Airport",
+      "location": {
+        "lat": 17.5,
+        "lon": -92.00833
+      },
+      "geom": {
+        "type": "Point",
+        "coordinates": [
+          -92.00833,
+          17.5
+        ]
+      },
+      "confirmed": true
+    }
+  ],
+  "hotels": [
+    {
+      "id": 1897816011,
+      "cityId": 1476618,
+      "stars": 0,
+      "pricefrom": 0,
+      "rating": 0,
+      "popularity": 100,
+      "propertyType": 0,
+      "checkIn": "14:00",
+      "checkOut": "13:00",
+      "distance": 29.1,
+      "photoCount": 1,
+      "photos": [
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1897816011_0/320/240.auto",
+          "width": 320,
+          "height": 240
+        }
+      ],
+      "photosByRoomType": {},
+      "yearOpened": null,
+      "yearRenovated": null,
+      "cntRooms": null,
+      "cntSuites": null,
+      "cntFloors": null,
+      "facilities": [
+        131,
+        56,
+        9,
+        14,
+        13,
+        134,
+        139
+      ],
+      "shortFacilities": [
+        "wi-fi in public areas",
+        "parking",
+        "restaurant",
+        "laundry"
+      ],
+      "location": {
+        "lon": -92.270371,
+        "lat": 17.10601
+      },
+      "name": {
+        "en": "Hotel Chilum"
+      },
+      "address": {
+        "en": "Avenida Ubilio Garcia NO. 97"
+      },
+      "link": "/mx/ocosingo-1476618/hotel_chilum-1897816011.html",
+      "poi_distance": {}
+    },
+    {
+      "id": 1909569776,
+      "cityId": 1476618,
+      "stars": 0,
+      "pricefrom": 0,
+      "rating": 83,
+      "popularity": 2000,
+      "propertyType": 3,
+      "checkIn": "15:00",
+      "checkOut": "14:00",
+      "distance": 9.6,
+      "photoCount": 5,
+      "photos": [
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909569776_0/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909569776_1/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909569776_2/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909569776_3/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909569776_4/320/240.auto",
+          "width": 320,
+          "height": 240
+        }
+      ],
+      "photosByRoomType": {},
+      "yearOpened": null,
+      "yearRenovated": null,
+      "cntRooms": 3,
+      "cntSuites": null,
+      "cntFloors": null,
+      "facilities": [
+        131,
+        9,
+        14,
+        28,
+        44,
+        134,
+        136,
+        139
+      ],
+      "shortFacilities": [
+        "restaurant",
+        "pets",
+        "wi-fi in public areas"
+      ],
+      "location": {
+        "lon": -92.00571,
+        "lat": 16.88839
+      },
+      "name": {
+        "en": "Casita Tonina"
+      },
+      "address": {
+        "en": "Carretera Ocosingo tonina km 8 Km 8"
+      },
+      "link": "/mx/ocosingo-1476618/casita_tonina-1909569776.html",
+      "poi_distance": {}
+    },
+    {
+      "id": 1897842037,
+      "cityId": 1476618,
+      "stars": 0,
+      "pricefrom": 0,
+      "rating": 0,
+      "popularity": 500,
+      "propertyType": 0,
+      "checkIn": null,
+      "checkOut": null,
+      "distance": 9.7,
+      "photoCount": 5,
+      "photos": [
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1897842037_0/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1897842037_1/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1897842037_2/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1897842037_3/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1897842037_4/320/240.auto",
+          "width": 320,
+          "height": 240
+        }
+      ],
+      "photosByRoomType": {},
+      "yearOpened": null,
+      "yearRenovated": null,
+      "cntRooms": null,
+      "cntSuites": null,
+      "cntFloors": null,
+      "facilities": [
+        29,
+        9,
+        26,
+        7,
+        134,
+        139
+      ],
+      "shortFacilities": [
+        "restaurant"
+      ],
+      "location": {
+        "lon": -92.00293,
+        "lat": 16.897711
+      },
+      "name": {
+        "en": "Centro Ecoturistico Kayab"
+      },
+      "address": {
+        "en": "ZONA ARQUEOLIGICA TONINA SN"
+      },
+      "link": "/mx/ocosingo-1476618/centro_ecoturistico_kayab-1897842037.html",
+      "poi_distance": {}
+    },
+    {
+      "id": 1909830750,
+      "cityId": 1476618,
+      "stars": 3,
+      "pricefrom": 0,
+      "rating": 79,
+      "popularity": 2000,
+      "propertyType": 1,
+      "checkIn": "13:00",
+      "checkOut": "12:30",
+      "distance": 0.5,
+      "photoCount": 5,
+      "photos": [
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909830750_0/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909830750_1/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909830750_2/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909830750_3/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1909830750_4/320/240.auto",
+          "width": 320,
+          "height": 240
+        }
+      ],
+      "photosByRoomType": {},
+      "yearOpened": null,
+      "yearRenovated": null,
+      "cntRooms": 24,
+      "cntSuites": null,
+      "cntFloors": null,
+      "facilities": [
+        131,
+        9,
+        7,
+        11,
+        134,
+        139
+      ],
+      "shortFacilities": [
+        "restaurant",
+        "air conditioning",
+        "wi-fi in public areas"
+      ],
+      "location": {
+        "lon": -92.09811,
+        "lat": 16.90563
+      },
+      "name": {
+        "en": "Hotel Real Plaza"
+      },
+      "address": {
+        "en": "3A AV SUR PTE 410, BARRIO SAN SEBASTIAN"
+      },
+      "link": "/mx/ocosingo-1476618/hotel_real_plaza-1909830750.html",
+      "poi_distance": {}
+    },
+    {
+      "id": 1904050694,
+      "cityId": 1476618,
+      "stars": 3,
+      "pricefrom": 0,
+      "rating": 92,
+      "popularity": 2000,
+      "propertyType": 1,
+      "checkIn": "14:00",
+      "checkOut": "12:30",
+      "distance": 0.3,
+      "photoCount": 5,
+      "photos": [
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1904050694_0/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1904050694_1/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1904050694_2/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1904050694_3/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1904050694_4/320/240.auto",
+          "width": 320,
+          "height": 240
+        }
+      ],
+      "photosByRoomType": {},
+      "yearOpened": null,
+      "yearRenovated": null,
+      "cntRooms": 3,
+      "cntSuites": null,
+      "cntFloors": null,
+      "facilities": [
+        131,
+        9,
+        14,
+        134,
+        139
+      ],
+      "shortFacilities": [
+        "restaurant",
+        "wi-fi in public areas"
+      ],
+      "location": {
+        "lon": -92.09651,
+        "lat": 16.90773
+      },
+      "name": {
+        "en": "Casa LOBE"
+      },
+      "address": {
+        "en": "2da Sur Poniente 3"
+      },
+      "link": "/mx/ocosingo-1476618/casa_lobe-1904050694.html",
+      "poi_distance": {}
+    },
+    {
+      "id": 1901027278,
+      "cityId": 1476618,
+      "stars": 0,
+      "pricefrom": 28,
+      "rating": 81,
+      "popularity": 2000,
+      "propertyType": 1,
+      "checkIn": "12:00",
+      "checkOut": "12:00",
+      "distance": 0.4,
+      "photoCount": 4,
+      "photos": [
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1901027278_0/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1901027278_1/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1901027278_2/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h1901027278_3/320/240.auto",
+          "width": 320,
+          "height": 240
+        }
+      ],
+      "photosByRoomType": {},
+      "yearOpened": null,
+      "yearRenovated": null,
+      "cntRooms": 4,
+      "cntSuites": null,
+      "cntFloors": null,
+      "facilities": [
+        131,
+        9,
+        7,
+        11,
+        146,
+        139
+      ],
+      "shortFacilities": [
+        "wi-fi in public areas",
+        "restaurant",
+        "air conditioning"
+      ],
+      "location": {
+        "lon": -92.09686,
+        "lat": 16.90903
+      },
+      "name": {
+        "en": "Hotel Zepeda"
+      },
+      "address": {
+        "en": "2a Calle Poniente Norte No.106, Barrio Norte 2a Calle Poniente Norte No.106, Barrio Norte"
+      },
+      "link": "/mx/ocosingo-1476618/hotel_zepeda-1901027278.html",
+      "poi_distance": {}
+    },
+    {
+      "id": 247653972,
+      "cityId": 1476618,
+      "stars": 0,
+      "pricefrom": 0,
+      "rating": 0,
+      "popularity": 1800,
+      "propertyType": 0,
+      "checkIn": "06:00",
+      "checkOut": "13:00",
+      "distance": 0.3,
+      "photoCount": 18,
+      "photos": [
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_0/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_1/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_2/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_3/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_4/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_5/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_6/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_7/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_8/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_9/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_10/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_11/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_12/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_13/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_14/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_15/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_16/320/240.auto",
+          "width": 320,
+          "height": 240
+        },
+        {
+          "url": "https://photo.hotellook.com/image_v2/limit/h247653972_17/320/240.auto",
+          "width": 320,
+          "height": 240
+        }
+      ],
+      "photosByRoomType": {},
+      "yearOpened": null,
+      "yearRenovated": null,
+      "cntRooms": null,
+      "cntSuites": null,
+      "cntFloors": null,
+      "facilities": [
+        50,
+        9,
+        14,
+        13,
+        7,
+        4
+      ],
+      "shortFacilities": [
+        "restaurant",
+        "laundry",
+        "tv"
+      ],
+      "location": {
+        "lon": -92.09534,
+        "lat": 16.90887
+      },
+      "name": {
+        "zh": "玛格丽塔酒店",
+        "en": "Hotel Margarita"
+      },
+      "address": {
+        "en": "Calle Central Norte 19, Barrio Centro"
+      },
+      "link": "/mx/ocosingo-1476618/hotel_margarita-247653972.html",
+      "poi_distance": {}
+    }
+  ]
+}

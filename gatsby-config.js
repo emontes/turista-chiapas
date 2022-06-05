@@ -6,6 +6,7 @@ const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
+    'hotel-hotellook',
     'hotel-location',
     'estado',
     'location',

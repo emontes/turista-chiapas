@@ -1,9 +1,10 @@
 import React from 'react'
-import Layout from '../../components/Layout'
+import Layout from '../../../components/Layout'
 import { graphql } from 'gatsby'
-import Seo from '../../components/Seo'
+import Seo from '../../../components/Seo'
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
-import Banner from '../../components/Hoteles/Destination/Banner'
+import Banner from '../../../components/Hoteles/Destination/Banner'
+import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 
 const Locations = ({ data }) => {
   const hotelsUrl = `https://jet.turista.com.mx/hotels?cityId=${data.location.hotellookId}&currency=mxn`
@@ -15,14 +16,16 @@ const Locations = ({ data }) => {
         description={`Hoteles en ${location.name}, ${location.estado.Name}. Reservaciones en línea e información de tarrifas, servicios y disponibilidad para encontrar su hotel en ${location.name}`}
         image={image ? getSrc(image.localFile.childImageSharp) : ''}
       />
-      <section>
-        <Banner
-          image={banner}
-          vistaDesc={location.name}
-          estado={location.estado.Name}
-          subTitle={`${numhoteles} hoteles en `}
-          title={`${location.name} Hoteles`}
-        />
+
+      <Banner
+        image={banner}
+        vistaDesc={location.name}
+        estado={location.estado.Name}
+        subTitle={`${numhoteles} hoteles en `}
+        title={`${location.name} Hoteles`}
+      />
+      <section className="section">
+        <NavTabs url={data.location.slug} />
         <iframe
           title="jetTurista"
           src={hotelsUrl}
@@ -46,7 +49,7 @@ export default Locations
 
 export const pageQuery = graphql`
   query($id: String) {
-    location: strapiHotelLocation(id: { eq: $id }) {
+    location: strapiHotelLocation(hotellookId: { eq: $id }) {
       banner {
         localFile {
           childImageSharp {
@@ -63,6 +66,7 @@ export const pageQuery = graphql`
       }
       hotellookId
       numhoteles
+      slug
       location {
         name
         latitude

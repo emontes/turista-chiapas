@@ -6,7 +6,7 @@ import device from '../../../assets/themes/device'
 
 const Card = ({ destino }) => {
   return (
-    <Wrapper to={`/${destino.slug}`}>
+    <Wrapper to={`/${destino.slug}.html`}>
       <div className="card-image">
         <GatsbyImage
           image={getImage(destino.image.localFile)}
