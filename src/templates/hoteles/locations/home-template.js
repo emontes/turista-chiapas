@@ -2,10 +2,11 @@ import React from 'react'
 import Layout from '../../../components/Layout'
 import { graphql } from 'gatsby'
 import Seo from '../../../components/Seo'
-import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
+import { getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
+import SideBanner from '../../../components/Banner'
 
 const Locations = ({ data }) => {
   const { location, banner, image } = data.location
@@ -28,17 +29,15 @@ const Locations = ({ data }) => {
       <section className="section">
         <NavTabs url={data.location.slug} />
         <h3>Hoteles en {location.name}</h3>
-        <Lista location={data.location} hoteles={data.hoteles.nodes} />
+        <div className="section-center">
+          <Lista location={data.location} hoteles={data.hoteles.nodes} />
+          <SideBanner
+            title={location.name}
+            description="Guía de Hoteles"
+            image={image ? image : ''}
+          />
+        </div>
       </section>
-
-      {image && (
-        <GatsbyImage
-          image={getImage(image.localFile)}
-          className="image"
-          alt={location.name}
-          title={location.name}
-        />
-      )}
     </Layout>
   )
 }

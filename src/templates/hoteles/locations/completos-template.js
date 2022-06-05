@@ -6,6 +6,7 @@ import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
+import SideBanner from '../../../components/Banner'
 
 const Locations = ({ data }) => {
   const { location, banner, image } = data.location
@@ -28,7 +29,10 @@ const Locations = ({ data }) => {
       <section className="section">
         <NavTabs url={data.location.slug} />
         <h3>Los hoteles más Completos de {location.name}</h3>
-        <Lista location={data.location} hoteles={data.hoteles.nodes} />
+        <div className="section-center">
+          <Lista location={data.location} hoteles={data.hoteles.nodes} />
+          <SideBanner />
+        </div>
       </section>
 
       {image && (

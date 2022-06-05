@@ -6,13 +6,17 @@ import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
+import SideBanner from '../../../components/Banner'
 
 const Locations = ({ data }) => {
   const { location, banner, image } = data.location
   const hoteles = data.hoteles
 
   return (
-    <Layout linkExterno="/hoteles" seoTitle={`Hoteles en ${location.name}`}>
+    <Layout
+      linkExterno="/hoteles"
+      seoTitle={`Hoteles en ${location.name} Lista`}
+    >
       <Seo
         title={`Lista de Hoteles en ${location.name} con Precios aproximados`}
         description={`Lista de Hoteles de ${location.name}, ${location.estado.Name} con nombre de hotel, Dirección, categoría y costo aproximado por noche para guiarlo a la mejor opción para reservar su hotel en ${location.name}.`}
@@ -29,16 +33,15 @@ const Locations = ({ data }) => {
 
       <section className="section">
         <NavTabs url={data.location.slug} />
-        <Lista location={data.location} hoteles={hoteles.nodes} />
+        <div className="section-center">
+          <Lista location={data.location} hoteles={hoteles.nodes} />
+          <SideBanner
+            title={location.name}
+            description="Lista de Hoteles"
+            image={image ? image : ''}
+          />
+        </div>
       </section>
-      {image && (
-        <GatsbyImage
-          image={getImage(image.localFile)}
-          className="image"
-          alt={location.name}
-          title={location.name}
-        />
-      )}
     </Layout>
   )
 }

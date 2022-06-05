@@ -2,15 +2,19 @@ import React from 'react'
 import Layout from '../../../components/Layout'
 import { graphql } from 'gatsby'
 import Seo from '../../../components/Seo'
-import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
+import { getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import Map from '../../../components/Hoteles/Destination/Map'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
+import SideBanner from '../../../components/Banner'
 
 const Locations = ({ data }) => {
   const { location, banner, image, numhoteles } = data.location
   return (
-    <Layout linkExterno="/hoteles" seoTitle={`Hoteles en ${location.name}`}>
+    <Layout
+      linkExterno="/hoteles"
+      seoTitle={`Hoteles en ${location.name} Mapa`}
+    >
       <Seo
         title={`Mapa de Hoteles en ${location.name}`}
         description={`Mapa de hoteles en ${location.name}, ${location.estado.Name}. Encuentre la ubicación ideal para su hotel en ${location.name}`}
@@ -27,17 +31,15 @@ const Locations = ({ data }) => {
 
       <section className="section">
         <NavTabs url={data.location.slug} />
-        <Map location={data.location} />
+        <div className="section-center">
+          <Map location={data.location} />
+          <SideBanner
+            title={location.name}
+            description="Mapa de Hoteles"
+            image={image ? image : ''}
+          />
+        </div>
       </section>
-
-      {image && (
-        <GatsbyImage
-          image={getImage(image.localFile)}
-          className="image"
-          alt={location.name}
-          title={location.name}
-        />
-      )}
     </Layout>
   )
 }

@@ -167,7 +167,7 @@ h4 {
 /* section */
 .section {
   
-  max-width: var(--max-width);
+  ${'' /* max-width: var(--max-width); */}
   margin: 0 auto;
   margin-bottom: 4rem;
   background: var(--clr-white);
@@ -177,7 +177,7 @@ h4 {
 .section-center {
   @media screen and (min-width: 1170px) {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 30rem;
     column-gap: 1rem;
   }
 }
