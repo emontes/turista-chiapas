@@ -8,9 +8,16 @@ import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
 import SideBanner from '../../../components/Banner'
 
-const Locations = ({ data }) => {
+const Locations = ({ data, pageContext }) => {
   const { location, banner, image } = data.location
   const numhoteles = data.hoteles.nodes.length
+  const listItems1 = {
+    title: 'Hoteles en Chiapas',
+    items: pageContext.destinos,
+    linkTo: '',
+    linkToSuffix: '.html',
+  }
+
   return (
     <Layout linkExterno="/hoteles" seoTitle={`Hoteles en ${location.name}`}>
       <Seo
@@ -31,11 +38,15 @@ const Locations = ({ data }) => {
         <h3>Hoteles en {location.name}</h3>
         <div className="section-center">
           <Lista location={data.location} hoteles={data.hoteles.nodes} />
-          <SideBanner
-            title={location.name}
-            description="Guía de Hoteles"
-            image={image ? image : ''}
-          />
+          <div>
+            <SideBanner
+              title={location.name}
+              description="Guía de Hoteles"
+              image={image ? image : ''}
+              showHotelsBox={true}
+              listItems1={listItems1}
+            />
+          </div>
         </div>
       </section>
     </Layout>

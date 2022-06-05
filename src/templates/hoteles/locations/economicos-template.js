@@ -2,15 +2,21 @@ import React from 'react'
 import Layout from '../../../components/Layout'
 import { graphql } from 'gatsby'
 import Seo from '../../../components/Seo'
-import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
+import { getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
 import SideBanner from '../../../components/Banner'
 
-const Locations = ({ data }) => {
+const Locations = ({ data, pageContext }) => {
   const { location, banner, image } = data.location
   const numhoteles = data.hoteles.nodes.length
+  const listItems1 = {
+    title: 'Hoteles en Chiapas',
+    items: pageContext.destinos,
+    linkTo: '',
+    linkToSuffix: '-economicos.html',
+  }
   return (
     <Layout
       linkExterno="/hoteles"
@@ -34,11 +40,14 @@ const Locations = ({ data }) => {
         <h3>Hoteles económicos en {location.name}</h3>
         <div className="section-center">
           <Lista location={data.location} hoteles={data.hoteles.nodes} />
-          <SideBanner
-            title={location.name}
-            description="Hoteles Ordenados de Menor a Mayor precio"
-            image={image ? image : ''}
-          />
+          <div>
+            <SideBanner
+              title={location.name}
+              description={`Los hoteles más económicos de ${location.name},  ordenados de Menor a Mayor precio`}
+              image={image ? image : ''}
+              listItems1={listItems1}
+            />
+          </div>
         </div>
       </section>
     </Layout>
@@ -52,6 +61,7 @@ export const pageQuery = graphql`
     hoteles: allStrapiHotelHotellook(
       filter: { cityId: { eq: $id }, pricefrom: { gt: 0 } }
       sort: { fields: pricefrom, order: ASC }
+      limit: 30
     ) {
       nodes {
         ...ListaHoteles

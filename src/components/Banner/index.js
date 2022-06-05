@@ -13,6 +13,7 @@ const index = ({ title, description, image, showHotelsBox, listItems1 }) => {
           title={listItems1.title}
           items={listItems1.items}
           linkTo={listItems1.linkTo}
+          linkToSuffix={listItems1.linkToSuffix}
         />
       )}
       {showHotelsBox && <HotelsBox />}
@@ -31,7 +32,7 @@ const Wrapper = styled.aside`
 
   @media (min-width: 576px) {
     & {
-      grid-template-columns: repeat(auto-fit, 300px);
+      grid-template-columns: repeat(auto-fit, 28rem);
       column-gap: 3rem;
     }
   }

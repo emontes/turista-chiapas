@@ -8,8 +8,14 @@ import Map from '../../../components/Hoteles/Destination/Map'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 import SideBanner from '../../../components/Banner'
 
-const Locations = ({ data }) => {
+const Locations = ({ data, pageContext }) => {
   const { location, banner, image, numhoteles } = data.location
+  const listItems1 = {
+    title: 'Hoteles en Chiapas',
+    items: pageContext.destinos,
+    linkTo: '',
+    linkToSuffix: '-mapa.html',
+  }
   return (
     <Layout
       linkExterno="/hoteles"
@@ -33,11 +39,14 @@ const Locations = ({ data }) => {
         <NavTabs url={data.location.slug} />
         <div className="section-center">
           <Map location={data.location} />
-          <SideBanner
-            title={location.name}
-            description="Mapa de Hoteles"
-            image={image ? image : ''}
-          />
+          <div>
+            <SideBanner
+              title={location.name}
+              description="Mapa de Hoteles"
+              image={image ? image : ''}
+              listItems1={listItems1}
+            />
+          </div>
         </div>
       </section>
     </Layout>

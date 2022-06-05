@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Title from './Title'
 
-const ListItems = ({ title, items, linkTo }) => {
+const ListItems = ({ title, items, linkTo, linkToSuffix }) => {
+  const suffix = linkToSuffix ? linkToSuffix : ''
   return (
     <div>
       <Title title={title} />
@@ -11,7 +12,11 @@ const ListItems = ({ title, items, linkTo }) => {
           return (
             <li key={index}>
               <Link
-                to={`/${linkTo}/${item.slug}`}
+                to={
+                  linkTo
+                    ? `/${linkTo}/${item.slug}${suffix}`
+                    : `/${item.slug}${suffix}`
+                }
                 className="category-menu"
                 activeStyle={{ color: 'var(--clr-red-dark)' }}
               >

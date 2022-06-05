@@ -2,15 +2,21 @@ import React from 'react'
 import Layout from '../../../components/Layout'
 import { graphql } from 'gatsby'
 import Seo from '../../../components/Seo'
-import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
+import { getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 import SideBanner from '../../../components/Banner'
 
-const Locations = ({ data }) => {
+const Locations = ({ data, pageContext }) => {
   const { location, banner, image } = data.location
   const hoteles = data.hoteles
+  const listItems1 = {
+    title: 'Hoteles en Chiapas',
+    items: pageContext.destinos,
+    linkTo: '',
+    linkToSuffix: '-lista.html',
+  }
 
   return (
     <Layout
@@ -35,11 +41,15 @@ const Locations = ({ data }) => {
         <NavTabs url={data.location.slug} />
         <div className="section-center">
           <Lista location={data.location} hoteles={hoteles.nodes} />
-          <SideBanner
-            title={location.name}
-            description="Lista de Hoteles"
-            image={image ? image : ''}
-          />
+          <div>
+            <SideBanner
+              title={location.name}
+              description={`Lista de todos los Hoteles que tenemos registrados en ${location.name} ordenados por orden alfabético`}
+              image={image ? image : ''}
+              showHotelsBox={true}
+              listItems1={listItems1}
+            />
+          </div>
         </div>
       </section>
     </Layout>
@@ -53,6 +63,7 @@ export const pageQuery = graphql`
     hoteles: allStrapiHotelHotellook(
       #filter: { cityId: { eq: $hotellookId }, pricefrom: { gt: 0 } }
       filter: { cityId: { eq: $id } }
+      sort: { fields: name___en, order: ASC }
     ) {
       nodes {
         ...ListaHoteles

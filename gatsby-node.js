@@ -11,10 +11,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     {
       locations: allStrapiHotelLocation(
         filter: { location: { estado: { Name: { eq: "Chiapas" } } } }
+        sort: { fields: numhoteles, order: DESC }
       ) {
         nodes {
           id: hotellookId
           slug
+          location {
+            name
+          }
         }
       }
     }
@@ -31,7 +35,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     'grandes',
     'travel',
   ]
+
+  let destinosBlock = []
+  destinos.map((item) => {
+    let destino = { title: item.location.name, slug: item.slug }
+    destinosBlock.push(destino)
+  })
+
   destinos.map(async (item) => {
+    // Crea la página principal del destion (pjemplo hoteles-palenque-5)
     createPage({
       path: `/${item.slug}.html`,
       component: path.resolve(
@@ -40,8 +52,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         id: item.id,
         slug: item.slug,
+        destinos: destinosBlock,
       },
     })
+    // Crea las páginas específicas (listado, mapa, económicos, etc)
     locationPages.map(async (page) => {
       createPage({
         path: `/${item.slug}-${page}.html`,
@@ -51,6 +65,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: {
           id: item.id,
           slug: item.slug,
+          destinos: destinosBlock,
         },
       })
     })
