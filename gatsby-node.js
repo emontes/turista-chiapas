@@ -31,6 +31,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     'mapa',
     'ofertas',
     'economicos',
+    'populares',
+    'valorados',
     'completos',
     'grandes',
     'travel',
@@ -330,7 +332,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   let topicsFull = []
   topics.map(async (item) => {
-    console.log('Obteniendo datos de tema: ', item)
     const result = await graphql(`{
       strapiTopic(slug: {eq: "${item}"}) {
         Title
@@ -366,7 +367,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const topicPages = resultTopic.data.allStrapiNoticia.pageInfo.pageCount
     console.log('Topic (item) ===> ', item)
     console.log('Cuantos paginos:', topicPages)
-
     for (var i = 0; i < topicPages; i++) {
       createPage({
         path:
@@ -430,7 +430,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       if (article.slugOld) {
         path = article.slugOld
       }
-      // console.log('Creando', path)
+      console.log('Creando', path)
       createPage({
         path: path,
         component: articlePost,
@@ -447,6 +447,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     const numPages = Math.ceil(articles.length / postPerPage)
     Array.from({ length: numPages }).forEach((_, i) => {
+      console.log('Creando Pagina de Noticias:', i)
       createPage({
         path: i === 0 ? `/noticias` : `/noticias/ultimas/${i + 1}`,
         component: path.resolve(

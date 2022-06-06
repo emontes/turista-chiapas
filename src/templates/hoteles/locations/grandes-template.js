@@ -5,7 +5,8 @@ import Seo from '../../../components/Seo'
 import { getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
-import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
+import ListaHotelesBoxes from '../../../components/Hoteles/Destination/lista-hoteles-boxes'
+import Leyenda from '../../../components/Hoteles/Destination/leyenda-precios'
 import SideBanner from '../../../components/Banner'
 
 const Locations = ({ data, pageContext }) => {
@@ -39,7 +40,7 @@ const Locations = ({ data, pageContext }) => {
         <NavTabs url={data.location.slug} />
         <h3>Los hoteles más grandes de {location.name}</h3>
         <div className="section-center">
-          <Lista location={data.location} hoteles={data.hoteles.nodes} />
+          <ListaHotelesBoxes hoteles={data.hoteles.nodes} />
           <div>
             <SideBanner
               title={location.name}
@@ -49,6 +50,7 @@ const Locations = ({ data, pageContext }) => {
             />
           </div>
         </div>
+        <Leyenda location={location.name} />
       </section>
     </Layout>
   )

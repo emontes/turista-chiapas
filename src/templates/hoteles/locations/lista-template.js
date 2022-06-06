@@ -7,6 +7,7 @@ import Banner from '../../../components/Hoteles/Destination/Banner'
 import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 import SideBanner from '../../../components/Banner'
+import Leyenda from '../../../components/Hoteles/Destination/leyenda-precios'
 
 const Locations = ({ data, pageContext }) => {
   const { location, banner, image } = data.location
@@ -51,6 +52,7 @@ const Locations = ({ data, pageContext }) => {
             />
           </div>
         </div>
+        <Leyenda location={location.name} />
       </section>
     </Layout>
   )

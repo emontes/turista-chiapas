@@ -5,7 +5,9 @@ import Seo from '../../../components/Seo'
 import { getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
-import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
+import Leyenda from '../../../components/Hoteles/Destination/leyenda-precios'
+
+import ListaHotelesBoxes from '../../../components/Hoteles/Destination/lista-hoteles-boxes'
 import SideBanner from '../../../components/Banner'
 
 const Locations = ({ data, pageContext }) => {
@@ -32,14 +34,15 @@ const Locations = ({ data, pageContext }) => {
         image={banner}
         vistaDesc={location.name}
         estado={location.estado.Name}
-        subTitle={`${numhoteles} hoteles en `}
-        title={`${location.name} Hoteles`}
+        subTitle={`Los ${numhoteles} hoteles más económicos de `}
+        title="Económicos"
       />
       <section className="section">
         <NavTabs url={data.location.slug} />
         <h3>Hoteles económicos en {location.name}</h3>
         <div className="section-center">
-          <Lista location={data.location} hoteles={data.hoteles.nodes} />
+          <ListaHotelesBoxes hoteles={data.hoteles.nodes} />
+
           <div>
             <SideBanner
               title={location.name}
@@ -49,6 +52,7 @@ const Locations = ({ data, pageContext }) => {
             />
           </div>
         </div>
+        <Leyenda location={location.name} />
       </section>
     </Layout>
   )
@@ -59,9 +63,13 @@ export default Locations
 export const pageQuery = graphql`
   query($id: String) {
     hoteles: allStrapiHotelHotellook(
-      filter: { cityId: { eq: $id }, pricefrom: { gt: 0 } }
+      filter: {
+        cityId: { eq: $id }
+        pricefrom: { gt: 0 }
+        photoCount: { gt: 0 }
+      }
       sort: { fields: pricefrom, order: ASC }
-      limit: 30
+      limit: 60
     ) {
       nodes {
         ...ListaHoteles

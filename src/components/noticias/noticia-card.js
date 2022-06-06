@@ -34,8 +34,8 @@ const NoticiaCard = ({ noticia }) => {
             <GatsbyImage
               image={getImage(imagen)}
               className="topic-image"
-              alt={topic.Title}
-              title={topic.Title}
+              alt={topic ? topic.Title : 'Sin Tema Definido'}
+              title={topic ? topic.Title : 'Sit Tema Definido'}
             />
           )}
 

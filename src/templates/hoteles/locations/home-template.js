@@ -5,8 +5,9 @@ import Seo from '../../../components/Seo'
 import { getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
-import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
+import Leyenda from '../../../components/Hoteles/Destination/leyenda-precios'
 import SideBanner from '../../../components/Banner'
+import ListaHotelesBoxes from '../../../components/Hoteles/Destination/lista-hoteles-boxes'
 
 const Locations = ({ data, pageContext }) => {
   const { location, banner, image } = data.location
@@ -35,9 +36,27 @@ const Locations = ({ data, pageContext }) => {
       />
       <section className="section">
         <NavTabs url={data.location.slug} />
-        <h3>Hoteles en {location.name}</h3>
+
         <div className="section-center">
-          <Lista location={data.location} hoteles={data.hoteles.nodes} />
+          <div>
+            {numhoteles > 20 ? (
+              <section className="section">
+                <h3>Los Hoteles más Populares de {location.name}</h3>
+                <ListaHotelesBoxes hoteles={data.toppopular.nodes} />
+                <h3>Los Hoteles mejor Valorados de {location.name}</h3>
+                <ListaHotelesBoxes hoteles={data.toprated.nodes} />
+                <h3>Los Hoteles más Económicos de {location.name}</h3>
+                <ListaHotelesBoxes hoteles={data.topecono.nodes} />
+                <h3>Los Hoteles más Grandes de {location.name}</h3>
+                <ListaHotelesBoxes hoteles={data.topgrandes.nodes} />
+              </section>
+            ) : (
+              <ListaHotelesBoxes
+                location={data.location}
+                hoteles={data.hoteles.nodes}
+              />
+            )}
+          </div>
           <div>
             <SideBanner
               title={location.name}
@@ -48,6 +67,7 @@ const Locations = ({ data, pageContext }) => {
             />
           </div>
         </div>
+        <Leyenda location={location.name} />
       </section>
     </Layout>
   )
@@ -57,6 +77,64 @@ export default Locations
 
 export const pageQuery = graphql`
   query($id: String) {
+    topecono: allStrapiHotelHotellook(
+      filter: {
+        cityId: { eq: $id }
+        pricefrom: { gt: 0 }
+        stars: { gt: 0 }
+        photoCount: { gt: 0 }
+      }
+      sort: { fields: pricefrom, order: ASC }
+      limit: 3
+    ) {
+      nodes {
+        ...ListaHoteles
+      }
+    }
+    toppopular: allStrapiHotelHotellook(
+      filter: {
+        cityId: { eq: $id }
+        pricefrom: { gt: 0 }
+        stars: { gt: 0 }
+        photoCount: { gt: 0 }
+      }
+      sort: { fields: popularity, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...ListaHoteles
+      }
+    }
+    topgrandes: allStrapiHotelHotellook(
+      filter: {
+        cityId: { eq: $id }
+        pricefrom: { gt: 0 }
+        stars: { gt: 0 }
+        photoCount: { gt: 0 }
+      }
+      sort: { fields: cntRooms, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...ListaHoteles
+      }
+    }
+
+    toprated: allStrapiHotelHotellook(
+      filter: {
+        cityId: { eq: $id }
+        pricefrom: { gt: 0 }
+        stars: { gt: 0 }
+        photoCount: { gt: 0 }
+      }
+      sort: { fields: rating, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...ListaHoteles
+      }
+    }
+
     hoteles: allStrapiHotelHotellook(
       filter: { cityId: { eq: $id }, stars: { gt: 0 }, photoCount: { gt: 0 } }
       sort: { fields: stars, order: DESC }

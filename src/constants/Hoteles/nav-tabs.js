@@ -6,6 +6,8 @@ import {
   FaRegMoneyBillAlt,
   FaChartLine,
   // FaRegPaperPlane,
+  FaUserPlus,
+  FaRegHeart,
 } from 'react-icons/fa'
 // import { GrDiamond } from 'react-icons/gr'
 
@@ -29,6 +31,16 @@ const Tabs = [
     icon: <FaRegMoneyBillAlt />,
     title: 'Económicos',
     url: 'economicos',
+  },
+  {
+    icon: <FaUserPlus />,
+    title: 'Populares',
+    url: 'populares',
+  },
+  {
+    icon: <FaRegHeart />,
+    title: 'Valorados',
+    url: 'valorados',
   },
   // {
   //   icon: <GrDiamond />,

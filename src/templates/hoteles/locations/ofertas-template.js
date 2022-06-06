@@ -5,6 +5,7 @@ import Seo from '../../../components/Seo'
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 import Banner from '../../../components/Hoteles/Destination/Banner'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
+import Leyenda from '../../../components/Hoteles/Destination/leyenda-precios'
 
 const Locations = ({ data }) => {
   const { location, banner, image, numhoteles } = data.location
@@ -26,6 +27,7 @@ const Locations = ({ data }) => {
       <section className="section">
         <NavTabs url={data.location.slug} />
         <h1>Hoteles en Oferta en {location.name}</h1>
+        <Leyenda location={location.name} />
       </section>
 
       {image && (

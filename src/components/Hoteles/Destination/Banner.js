@@ -29,6 +29,7 @@ export default Banner
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+  overflow: hidden;
 
   .hero-img {
     width: 100%;

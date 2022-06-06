@@ -7,6 +7,7 @@ import Banner from '../../../components/Hoteles/Destination/Banner'
 import NavTabs from '../../../components/Hoteles/Destination/NavTabs'
 import Lista from '../../../components/Hoteles/Destination/lista-hoteles'
 import SideBanner from '../../../components/Banner'
+import Leyenda from '../../../components/Hoteles/Destination/leyenda-precios'
 
 const Locations = ({ data }) => {
   const { location, banner, image } = data.location
@@ -33,6 +34,7 @@ const Locations = ({ data }) => {
           <Lista location={data.location} hoteles={data.hoteles.nodes} />
           <SideBanner />
         </div>
+        <Leyenda location={location.name} />
       </section>
 
       {image && (

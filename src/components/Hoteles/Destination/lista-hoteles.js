@@ -11,9 +11,7 @@ const Lista = ({ hoteles }) => {
           <tr>
             <th>Hotel</th>
             <th className="direccion">Dirección</th>
-            <th>Estrellas</th>
             <th>Cuartos</th>
-
             <th>*Precio</th>
           </tr>
           {hoteles.map((hotel) => {
@@ -27,9 +25,15 @@ const Lista = ({ hoteles }) => {
                   >
                     {hotel.name.en}
                   </a>
+                  {hotel.rating > 0 && (
+                    <span className="rating-number">{hotel.rating / 10}</span>
+                  )}
+                  {hotel.stars > 0 && (
+                    <span className="stars">{hotel.stars}☆</span>
+                  )}
                 </td>
                 <td className="direccion">{hotel.address.en}</td>
-                <td>{hotel.stars > 0 && hotel.stars}</td>
+
                 <td>{hotel.cntRooms}</td>
 
                 <td className="precio">
@@ -37,7 +41,7 @@ const Lista = ({ hoteles }) => {
                     ? new Intl.NumberFormat('es-MX', {
                         style: 'currency',
                         currency: 'MXN',
-                      }).format(hotel.pricefrom * 22)
+                      }).format(hotel.pricefrom * 24)
                     : ''}
                 </td>
               </tr>
@@ -46,14 +50,6 @@ const Lista = ({ hoteles }) => {
         </tbody>
       </table>
       <br />
-      <p>
-        * Tarifas para reservar hoteles en Tuxtla Gutiérrez listadas en Pesos
-        Mexicanos basado en el costo promedio más económico (antes de impuestos)
-        por noche.
-        <br />
-        ** Los precios son solamente de referencia y varían, para saber el
-        precio exacto debe hacer click en el Hotel que le parezca más atractivo.
-      </p>
     </Wrapper>
   )
 }
@@ -70,6 +66,27 @@ const Wrapper = styled.div`
   .precio {
     text-align: right;
     color: #4caf50;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  .stars {
+    float: right;
+    color: #f9c40a;
+    margin-left: 5px;
+  }
+  .rating-number {
+    float: right;
+    margin-left: 5px;
+
+    color: #fff;
+    background: #79ba00;
+
+    padding: 0 5px;
+    height: calc(17px + 5px);
+    border-radius: 2px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: calc(17px + 5px);
   }
 `
 
