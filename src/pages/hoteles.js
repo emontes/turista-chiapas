@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import HotelesHero from '../components/Hoteles/Home/HotelsHero'
-import Hoteles from '../components/Hoteles'
+import Hoteles from '../components/Hoteles/Home'
 import { getSrc } from 'gatsby-plugin-image'
 
 const hoteles = ({ data }) => {
@@ -22,7 +22,7 @@ const hoteles = ({ data }) => {
         description="Encuentre el Hotel que busca con el buscador de hoteles de Chiapas, o con el listado de ciudades que tienen Hoteles en Chiapas"
         image={src}
       />
-      <Hoteles />
+      <Hoteles locations={data.locations.nodes} />
     </Layout>
   )
 }
@@ -31,6 +31,28 @@ export default hoteles
 
 export const query = graphql`
   query {
+    locations: allStrapiLocation(
+      filter: {
+        estado: { Name: { eq: "Chiapas" } }
+        hotel_location: { slug: { ne: null } }
+      }
+    ) {
+      nodes {
+        name
+        hotel_location {
+          slug
+          numhoteles
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+
     destino1: strapiHotelLocation(strapi_id: { eq: 2 }) {
       location {
         name

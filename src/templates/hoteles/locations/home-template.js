@@ -40,16 +40,17 @@ const Locations = ({ data, pageContext }) => {
         <div className="section-center">
           <div>
             {numhoteles > 20 ? (
-              <section className="section">
+              <>
                 <h3>Los Hoteles más Populares de {location.name}</h3>
                 <ListaHotelesBoxes hoteles={data.toppopular.nodes} />
+
                 <h3>Los Hoteles mejor Valorados de {location.name}</h3>
                 <ListaHotelesBoxes hoteles={data.toprated.nodes} />
                 <h3>Los Hoteles más Económicos de {location.name}</h3>
                 <ListaHotelesBoxes hoteles={data.topecono.nodes} />
                 <h3>Los Hoteles más Grandes de {location.name}</h3>
                 <ListaHotelesBoxes hoteles={data.topgrandes.nodes} />
-              </section>
+              </>
             ) : (
               <ListaHotelesBoxes
                 location={data.location}

@@ -58,6 +58,4 @@ const Wrapper = styled.div`
     margin-top: 0.8rem;
     border-bottom: 1px solid var(--clr-grey-5);
   }
-  .active {
-  }
 `
