@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   margin-bottom: 1.25rem;
   z-index: 0;
   h4 {
-    color: var(--clr-grey-3);
+    color: ${(props) => props.theme.colors.primary1};
     font-size: 1.5rem;
     font-weight: 500;
     background: var(--clr-grey-10);
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 1.5px;
     transform: translateY(-50%);
-    background: ${(props) => props.theme.colors.primary5};
+    background: ${(props) => props.theme.colors.primary9};
     z-index: -1;
   }
 `

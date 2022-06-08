@@ -4,10 +4,6 @@ import GlobalStyles from '../assets/themes/globalStyles'
 import Chiapas from '../assets/themes/chiapas'
 import EdoMexico from '../assets/themes/edomexico'
 
-// import OuterTop from '../assets/images/edomexico/outer_top.png'
-// import OuterBottom from '../assets/images/edomexico/outer_bottom.png'
-//import BodyBg from '../assets/images/edomexico/body_bg.jpg'
-
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import styled from 'styled-components'

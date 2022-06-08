@@ -1,6 +1,33 @@
+import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import BodyBg from '../images/chiapas/body_bg.jpg'
 import OuterTop from '../images/chiapas/outer_top.png'
 import OuterBottom from '../images/chiapas/outer_bottom.png'
+
+const LogoNav = (
+  <StaticImage
+    src="../images/chiapas/logo.png"
+    alt="Turista Chiapas"
+    title="Turista Chiapas"
+    layout="fullWidth"
+    className="logo"
+  />
+)
+const LogoSmal2 = (
+  <StaticImage
+    src="../images/chiapas/logosmal2.png"
+    alt="Turista Chiapas"
+    title="Turista Chiapas"
+  />
+)
+
+const LogoSmal = (
+  <StaticImage
+    src="../images/chiapas/logo_small.png"
+    alt="Turista México"
+    title="Turista México"
+  />
+)
 
 const theme = {
   fonts: {},
@@ -20,6 +47,9 @@ const theme = {
     bodyBg: BodyBg,
     outerTop: OuterTop,
     outerBottom: OuterBottom,
+    logoNav: LogoNav,
+    logoSmal2: LogoSmal2,
+    logoSmal: LogoSmal,
   },
 }
 

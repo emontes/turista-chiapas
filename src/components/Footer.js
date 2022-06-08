@@ -1,26 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
+
 import styled from 'styled-components'
 import TuristaExternos from '../constants/turista_externos'
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
+
 import SocialLinks from '../constants/social_links'
 import destacadosChiapas from '../constants/footer_des_chiapas'
 import otrosDestinos from '../constants/footer_otros_destinos'
 import { BiChevronRightCircle } from 'react-icons/bi'
 
 const Footer = ({ title = 'El Turista Chiapas', linkExterno = '' }) => {
+  const themeContext = useContext(ThemeContext)
+
   return (
     <Wrapper>
       <div className="footer-1">
         <div className="foot">
           <SocialLinks styleClass="footer-icons" />
-          <a href="https://turista.com.mx">
-            <StaticImage
-              src="../assets/images/logosmal2.png"
-              alt="Turista Chiapas"
-              title="Turista Chiapas"
-            />
-          </a>
+          <a href="https://turista.com.mx">{themeContext.images.logoSmal2}</a>
 
           <div className="privacy">
             &copy; {new Date().getFullYear()} {' | '}
@@ -62,12 +60,7 @@ const Footer = ({ title = 'El Turista Chiapas', linkExterno = '' }) => {
           </div>
         </div>
 
-        <div className="foot">
-          <StaticImage
-            src="../assets/images/logo_small.png"
-            alt="Turista Chiapas"
-          />
-        </div>
+        <div className="foot">{themeContext.images.logoSmal}</div>
       </div>
 
       <h1>{title}</h1>

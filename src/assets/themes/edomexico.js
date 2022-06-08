@@ -1,6 +1,33 @@
+import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import BodyBg from '../images/edomexico/body_bg.jpg'
 import OuterTop from '../images/edomexico/outer_top.png'
 import OuterBottom from '../images/edomexico/outer_bottom.png'
+
+const LogoNav = (
+  <StaticImage
+    src="../images/edomexico/logo.png"
+    alt="Turista Estado de México"
+    title="Turista Estado de México"
+    layout="fullWidth"
+    className="logo"
+  />
+)
+const LogoSmal2 = (
+  <StaticImage
+    src="../images/edomexico/logosmal2.png"
+    alt="Turista Estado de México"
+    title="Turista Estado de México"
+  />
+)
+
+const LogoSmal = (
+  <StaticImage
+    src="../images/edomexico/logo_small.png"
+    alt="Turista México"
+    title="Turista México"
+  />
+)
 
 const theme = {
   fonts: {},
@@ -20,6 +47,9 @@ const theme = {
     bodyBg: BodyBg,
     outerTop: OuterTop,
     outerBottom: OuterBottom,
+    logoNav: LogoNav,
+    logoSmal2: LogoSmal2,
+    logoSmal: LogoSmal,
   },
 }
 

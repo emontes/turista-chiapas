@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
-//import logo from '../assets/images/logo.png'
-import { StaticImage } from 'gatsby-plugin-image'
+import React, { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 import styled from 'styled-components'
 import { FaAlignRight } from 'react-icons/fa'
 import pageLinks from '../constants/links'
@@ -9,6 +8,7 @@ import { debounce } from '../utilities/helpers'
 import device from '../assets/themes/device'
 
 const Navbar = ({ toggleSidebar }) => {
+  const themeContext = useContext(ThemeContext)
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [visible, setVisible] = useState(true)
 
@@ -35,14 +35,7 @@ const Navbar = ({ toggleSidebar }) => {
       <div className={visible ? 'navbar' : 'navbar-fixed'}>
         <div className="nav-center">
           <div className="nav-header">
-            <Link to="/">
-              <StaticImage
-                src="../assets/images/logo.png"
-                alt="Turista Chiapas"
-                layout="fullWidth"
-                className="logo"
-              />
-            </Link>
+            <Link to="/">{themeContext.images.logoNav}</Link>
             <button type="button" className="toggle-btn">
               <FaAlignRight onClick={toggleSidebar} />
             </button>

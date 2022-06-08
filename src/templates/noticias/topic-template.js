@@ -81,7 +81,7 @@ export const query = graphql`
       }
     }
 
-    image: file(relativePath: { eq: "portada-chiapas-1.jpg" }) {
+    image: file(relativePath: { eq: "portada-1.jpg" }) {
       childImageSharp {
         gatsbyImageData
       }
