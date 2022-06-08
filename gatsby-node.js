@@ -430,7 +430,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       if (article.slugOld) {
         path = article.slugOld
       }
-      console.log('Creando', path)
+      // console.log('Creando', path)
       createPage({
         path: path,
         component: articlePost,
@@ -447,7 +447,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     const numPages = Math.ceil(articles.length / postPerPage)
     Array.from({ length: numPages }).forEach((_, i) => {
-      console.log('Creando Pagina de Noticias:', i)
+      // console.log('Creando Pagina de Noticias:', i)
       createPage({
         path: i === 0 ? `/noticias` : `/noticias/ultimas/${i + 1}`,
         component: path.resolve(

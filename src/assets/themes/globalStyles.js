@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import device from './device'
-import hedingBg from '../images/heading_bg.jpg'
+import hedingBg from '../images/chiapas/heading_bg.jpg'
 
 const GlobalStyle = createGlobalStyle`
 /*
@@ -23,23 +23,13 @@ Variables
 ===============
 */
 :root {
-  /* dark shades of primary color*/
-  --clr-primary-1: #036544;;
-  --clr-primary-2: #477246;
-  --clr-primary-5: hsl(118, 25%, 43%);
-  /* lighter shades of primary color */
-  --clr-primary-6: #ededda;
-  --clr-primary-7: #c0df6c;
-  --clr-primary-8: #f1f7ea;
-  --clr-primary-9: #b4d0a9;
-  --clr-primary-10: #d2edde;
  /* darkest grey - used for headings */
-  --clr-grey-1: #12222a;
-  --clr-grey-3: #15262f;
-  --clr-grey-4: hsl(117, 9%, 46%);
+  --clr-grey-1: hsl(201, 35%, 9%);
+  --clr-grey-3: hsl(203, 35%, 10%);
+  --clr-grey-4: hsl(209, 28%, 39%);
   /* grey used for paragraphs */
-  --clr-grey-5: #999;
-  --clr-grey-8: #b1b8b8;;
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-8: hsl(210, 31%, 80%);
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
   --clr-green-dark: hsl(125, 67%, 35%);
@@ -49,6 +39,7 @@ Variables
   --clr-white: #fff;
   --clr-white-transparency-8: rgba(255, 255, 255, 0.8);
   --ff-primary:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
   --ff-secondary: "Open Sans", sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.2rem;
@@ -107,14 +98,14 @@ ul {
 }
 a {
   text-decoration: none;
-  color: var(--clr-primary-5);
+  color: ${(props) => props.theme.colors.primary5};
   :hover {
-    color: var(--clr-primary-6);
+    color: ${(props) => props.theme.colors.primary9};
   }
 }
 p {
   margin-bottom: 1.4rem;
-  color: var(--clr-grey-5);
+  color: ${(props) => props.theme.colors.primary8};
   font-size: 1.3rem;
 }
 h1,
@@ -191,7 +182,7 @@ h4 {
 }
 
 .cont-area {
-    background: var(--clr-primary-8);
+    background: var(--clr-grey-10);
     border: 1px solid #d3d3d3;
     border-radius: 8px;
     box-shadow: 0px 0px 1px #d3d3d3;
@@ -213,7 +204,7 @@ td,th {padding: 15px 5px;
     border-radius: 2px;}
     font-size: 1.2rem;
 th {
-  background: var(--clr-primary-2);
+  background: ${(props) => props.theme.colors.primary2};
   color: var(--clr-white);
   
   font-size: 1.4rem;
@@ -222,11 +213,12 @@ a {color: #039be5; :hover{color: var(--clr-red-light);}}
 }
 
 .nav_main {
-background: var(--clr-primary-1);
+background: ${(props) => props.theme.colors.primary1};
   padding-bottom: 10px;
   margin-bottom: 12px;
   border-radius: 5px;
   position: relative;
+  
   
 }
 .nav_main--h2 {
@@ -243,7 +235,7 @@ background: var(--clr-primary-1);
     }
 
 .economy_bg {
-  background: var(--clr-primary-10);
+  background: ${(props) => props.theme.colors.primary10};
   margin: 0 10px 0 10px;
   padding: 5px;
 }
@@ -256,7 +248,7 @@ background: var(--clr-primary-1);
 
 .category-menu {
     font-size: 1.5rem;
-    color: var(--clr-grey-5);
+    color: ${(props) => props.theme.colors.primary1};
     line-height: 2rem;
     display: block;
     
@@ -265,7 +257,7 @@ background: var(--clr-primary-1);
     border-radius: var(--radius);
   }
   .category-menu:hover {
-    background: var(--clr-primary-9);
+    background: ${(props) => props.theme.colors.primary7};
   }
 
 .breadcrumb {
@@ -315,7 +307,7 @@ Banner Component
 
 
 .social-icon:hover {
-    color: var(--clr-primary-5);
+    color: ${(props) => props.theme.colors.primary10};
     transform: translateY(-5px);
   }
 .facebook-icon {
@@ -355,7 +347,7 @@ Sidebar
   display: block;
   text-align: center;
   text-transform: capitalize;
-  color: var(--clr-grey-5);
+  color: ${(props) => props.theme.colors.primary7};
   letter-spacing: var(--spacing);
   margin-bottom: 0.5rem;
   font-size: 2rem;
@@ -363,8 +355,8 @@ Sidebar
   border-radius: var(--radius);
 }
 .sidebar-links li a:hover {
-  background: var(--clr-primary-9);
-  color: var(--clr-primary-5);
+  background: ${(props) => props.theme.colors.primary9};
+  color: ${(props) => props.theme.colors.primary10};
 }
 .close-btn {
   position: absolute;

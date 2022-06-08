@@ -1,6 +1,7 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const siteData = require('./src/constants/configs/chiapas')
 
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
@@ -21,44 +22,18 @@ const strapiConfig = {
 }
 
 module.exports = {
-  siteMetadata: {
-    title: 'El Turista Chiapas',
-    description:
-      'El Turista Chiapas cuenta con las herramientas necesarias para que los turistas puedan planear su viaje por Chiapas.',
-    titleTemplate: `%s | Turista Chiapas`,
-    url: `https://chiapas.turista.com.mx`,
-    siteUrl: `https://chiapas.turista.com.mx`,
-    twitterUsername: `@turistamexico`,
-    image: `/portada-chiapas-1.jpg`,
-  },
+  siteMetadata: siteData.siteMetadata,
   plugins: [
     'gatsby-plugin-htaccess', // Para que haga las redirecciones en Apache2
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-693957-11',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'src/assets/images/icon.png',
-      },
-    },
+    siteData.googleAnalytics,
+    siteData.manifest,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: './src/assets/images/',
-      },
-      __key: 'images',
-    },
+    siteData.sourceFileSystem,
     {
       resolve: `gatsby-source-strapi`,
       options: strapiConfig,

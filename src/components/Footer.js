@@ -93,8 +93,8 @@ const Footer = ({ title = 'El Turista Chiapas', linkExterno = '' }) => {
 export default Footer
 
 const Wrapper = styled.footer`
-  color: var(--clr-primary-1);
-  background-color: var(--clr-primary-9);
+  color: ${(props) => props.theme.colors.primary1};
+  background-color: ${(props) => props.theme.colors.primary9};
 
   h1 {
     margin-bottom: 2rem;
@@ -102,7 +102,7 @@ const Wrapper = styled.footer`
     text-transform: capitalize;
   }
   h4 {
-    color: var(--clr-primary-2);
+    color: ${(props) => props.theme.colors.primary2};
 
     text-transform: capitalize;
   }
@@ -116,7 +116,7 @@ const Wrapper = styled.footer`
   }
   .social-link {
     font-size: 2.8rem;
-    color: var(--clr-primary-2);
+    color: ${(props) => props.theme.colors.primary2};
     transition: var(--transition);
   }
   .social-link:hover {
@@ -151,15 +151,15 @@ const Wrapper = styled.footer`
 
   .footer-2 {
     width: 100%;
-    background: var(--clr-primary-1);
+    background: ${(props) => props.theme.colors.primary1};
     padding: 2.5rem 0;
     text-align: center;
-    color: var(--clr-grey-5);
+    color: ${(props) => props.theme.colors.primary9};
     a {
-      color: var(--clr-grey-5);
+      color: ${(props) => props.theme.colors.primary8};
       text-transform: capitalize;
       :hover {
-        color: var(--clr-primary-7);
+        color: ${(props) => props.theme.colors.primary7};
       }
     }
   }

@@ -41,7 +41,7 @@ const Wrapper = styled(Link)`
   }
   :hover {
     box-shadow: var(--dark-shadow);
-    color: var(--clr-primary-7);
+    color: ${(props) => props.theme.colors.primary7};
   }
 
   .card-title {
@@ -50,7 +50,7 @@ const Wrapper = styled(Link)`
     padding: 1rem;
   }
   .card-image {
-    background-color: var(--clr-primary-6);
+    background-color: ${(props) => props.theme.colors.primary6};
     overflow: hidden;
 
     .img {

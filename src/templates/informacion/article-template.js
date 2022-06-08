@@ -115,7 +115,7 @@ const Wrapper = styled.section`
         display: flex;
         align-items: center;
         & .icon {
-          color: var(--clr-primary-5);
+          color: ${(props) => props.theme.colors.primary5};
           margin-right: 0.5rem;
         }
       }

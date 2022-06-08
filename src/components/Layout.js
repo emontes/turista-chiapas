@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
+import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../assets/themes/globalStyles'
+import Chiapas from '../assets/themes/chiapas'
+import EdoMexico from '../assets/themes/edomexico'
+
+// import OuterTop from '../assets/images/edomexico/outer_top.png'
+// import OuterBottom from '../assets/images/edomexico/outer_bottom.png'
+//import BodyBg from '../assets/images/edomexico/body_bg.jpg'
+
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import styled from 'styled-components'
-import BodyBg from '../assets/images/body_bg.jpg'
-import OuterTop from '../assets/images/outer_top.png'
-import OuterBottom from '../assets/images/outer_bottom.png'
+
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import device from '../assets/themes/device'
@@ -25,8 +31,13 @@ const Layout = ({
   const toggleSidebar = () => {
     setIsOpen(!isOpen)
   }
+
+  const estado = 'Chiapas'
+  let themeSel = Chiapas
+  if (estado === 'Edom') themeSel = EdoMexico
+
   return (
-    <>
+    <ThemeProvider theme={themeSel}>
       <GlobalStyles />
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
@@ -51,24 +62,26 @@ const Layout = ({
         title={seoTitle ? seoTitle : 'Turista Chiapas'}
         linkExterno={linkExterno}
       />
-    </>
+    </ThemeProvider>
   )
 }
 
 export default Layout
 
 const Wrapper = styled.main`
-  background: url(${BodyBg}) var(--clr-primary-10);
-
+  background: url(${(props) => props.theme.images.bodyBg})
+    ${(props) => props.theme.colors.primary10};
   .outer-top {
-    background: url(${OuterTop}) no-repeat left top;
+    background: url(${(props) => props.theme.images.outerTop}) no-repeat left
+      top;
     width: 100%;
   }
 
   element.style {
   }
   .outer-bottom {
-    background: url(${OuterBottom}) no-repeat right bottom;
+    background: url(${(props) => props.theme.images.outerBottom}) no-repeat
+      right bottom;
     width: 100%;
     padding: 0rem;
     @media ${device.tablet} {

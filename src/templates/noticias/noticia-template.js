@@ -146,13 +146,13 @@ const Wrapper = styled.section`
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: var(--clr-grey-5);
+      color: ${(props) => props.theme.colors.primary5};
 
       & .date {
         display: flex;
         align-items: center;
         & .icon {
-          color: var(--clr-primary-5);
+          color: ${(props) => props.theme.colors.primary5};
           margin-right: 0.5rem;
         }
       }
@@ -165,9 +165,6 @@ const Wrapper = styled.section`
     margin-bottom: 1rem;
   }
 
-  p {
-    color: var(--clr-grey-5);
-  }
   .underline {
     width: 5rem;
     height: 1px;

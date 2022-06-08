@@ -35,10 +35,10 @@ const Wrapper = styled.div`
   a {
     border-radius: 3px;
     padding: 1rem;
-    color: var(--clr-grey-5);
+    color: ${(props) => props.theme.colors.primary1};
 
     :hover {
-      background: var(--clr-grey-8);
+      background: ${(props) => props.theme.colors.primary10};
     }
   }
   .tab-title {

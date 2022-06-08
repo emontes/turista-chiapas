@@ -96,7 +96,7 @@ var Wrapper = styled.section`
 
   .find-item__icon {
     vertical-align: top;
-    color: var(--clr-primary-5);
+    color: ${(props) => props.theme.colors.primary6};
     font-size: 1rem;
     display: table-cell;
     @media screen and (min-width: 576px) {

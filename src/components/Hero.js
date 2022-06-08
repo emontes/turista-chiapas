@@ -58,7 +58,7 @@ const Wrapper = styled.header`
   .hero {
     height: 60vh;
 
-    background-color: var(--clr-primary-9);
+    background-color: ${(props) => props.theme.colors.primary9};
     background-size: cover;
     background-position: top;
 
@@ -90,7 +90,7 @@ const Wrapper = styled.header`
     text-align: center;
   }
   .heading-primary {
-    color: var(--clr-primary-10);
+    color: ${(props) => props.theme.colors.primary10};
     text-shadow: 1px 1px 2px black;
     text-transform: uppercase;
     backface-visibility: hidden;

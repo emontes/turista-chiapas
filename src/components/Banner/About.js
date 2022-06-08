@@ -39,7 +39,7 @@ const About = (props) => {
 const Wrapper = styled.div`
   text-align: center;
   p {
-    color: var(--clr-grey-5);
+    color: ${(props) => props.theme.colors.primary7};
   }
   .img {
     width: 100px;

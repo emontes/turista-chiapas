@@ -93,7 +93,7 @@ const Wrapper = styled.div`
     z-index: 200;
     background: var(--clr-white);
     transition: var(--transition);
-    border-bottom: 0.116rem solid var(--clr-primary-5);
+    border-bottom: 0.116rem solid ${(props) => props.theme.colors.primary5};
 
     box-shadow: var(--dark-shadow);
   }
@@ -119,12 +119,12 @@ const Wrapper = styled.div`
     font-size: 2.32rem;
     background: transparent;
     border-color: transparent;
-    color: var(--clr-primary-5);
+    color: ${(props) => props.theme.colors.primary5};
     cursor: pointer;
     transition: var(--transition);
   }
   .toggle-btn:hover {
-    color: var(--clr-primary-2);
+    color: ${(props) => props.theme.colors.primary2};
   }
   .nav-links {
     display: none;
@@ -153,8 +153,8 @@ const Wrapper = styled.div`
       }
     }
     .nav-links a:hover {
-      color: var(--clr-primary-5);
-      box-shadow: 0px 2px var(--clr-primary-5);
+      color: ${(props) => props.theme.colors.primary5};
+      box-shadow: 0px 2px ${(props) => props.theme.colors.primary5};
     }
     .nav-center {
       display: grid;

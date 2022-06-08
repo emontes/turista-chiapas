@@ -29,7 +29,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 1.5px;
     transform: translateY(-50%);
-    background: var(--clr-primary-5);
+    background: ${(props) => props.theme.colors.primary5};
     z-index: -1;
   }
 `

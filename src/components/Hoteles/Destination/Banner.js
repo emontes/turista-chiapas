@@ -55,7 +55,7 @@ const Wrapper = styled.div`
   }
 
   .ciudad {
-    color: var(--clr-primary-5);
+    color: ${(props) => props.theme.colors.primary5};
     font-size: 1.4rem;
     font-weight: bold;
     margin-left: 1.7rem;
@@ -78,7 +78,7 @@ const Wrapper = styled.div`
   }
 
   .subTitle {
-    color: var(--clr-primary-5);
+    color: ${(props) => props.theme.colors.primary5};
     margin-left: 0.9rem;
   }
 `

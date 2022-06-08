@@ -89,7 +89,7 @@ const Wrapper = styled.section`
     margin-bottom: 1rem;
   }
   .featured {
-    border: 3px solid var(--clr-primary-5) !important ;
+    border: 3px solid ${(props) => props.theme.colors.primary5}; !important ;
   }
   .category {
     display: block;

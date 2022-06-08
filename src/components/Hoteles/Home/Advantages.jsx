@@ -39,7 +39,7 @@ const Wrapper = styled.section`
     text-align: center;
   }
   .advantage span {
-    color: var(--clr-primary-5);
+    color: ${(props) => props.theme.colors.primary5};
     padding: 0.5rem;
     display: inline-block;
     font-size: 4rem;

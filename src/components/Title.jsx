@@ -18,7 +18,7 @@ export default styled(Title)`
     font-size: 1.6rem;
     text-align: center;
     letter-spacing: 0.1rem;
-    color: var(--clr-primary-5);
+    color: ${(props) => props.theme.colors.primary5};
   }
   .title {
     color: var(--clr-black);
