@@ -3,10 +3,13 @@ import Title from '../../Title'
 import advantages from '../../../constants/Hoteles/advantages'
 import styled from 'styled-components'
 
-const Advantages = () => {
+const Advantages = ({ metadata }) => {
   return (
     <Wrapper>
-      <Title title="Ventajas de Reservar" subtitle="con Turista Chiapas" />
+      <Title
+        title="Ventajas de Reservar con"
+        subtitle={`Turista ${metadata.estado.name}`}
+      />
       <div className="center">
         {advantages.map((item, index) => {
           return (

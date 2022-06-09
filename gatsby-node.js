@@ -3,14 +3,25 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const postPerPage = 16
+  const estadoSlug = 'chiapas'
 
   /* ---------------------------------
      ------------ Hoteles --------------
      --------------------------------*/
+
+  // ** Crea pagina principal de Hoteles
+  createPage({
+    path: `/hoteles`,
+    component: path.resolve(`./src/templates/hoteles/index-template.js`),
+    context: {
+      estadoSlug: estadoSlug,
+    },
+  })
+
   const resultDestinos = await graphql(`
     {
       locations: allStrapiHotelLocation(
-        filter: { location: { estado: { Name: { eq: "Chiapas" } } } }
+        filter: { location: { estado: { slug: { eq: "${estadoSlug}" } } } }
         sort: { fields: numhoteles, order: DESC }
       ) {
         nodes {
@@ -253,7 +264,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   console.log('Creando páginas de Categorías de noticias')
   const resultCategories = await graphql(`
     {
-      allStrapiNoticia(filter: { estado: { Name: { eq: "Chiapas" } } }) {
+      allStrapiNoticia(filter: { estado: { slug: { eq: "${estadoSlug}" } } }) {
         distinct(field: location___slug)
       }
     }
@@ -268,7 +279,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const result = await graphql(`
       {
         strapiLocation(
-          estado: { slug: { eq: "chiapas" } }
+          estado: { slug: { eq: "${estadoSlug}" } }
           slug: { eq: "${item}" }
         ) {
           name
@@ -285,7 +296,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allStrapiNoticia(
         limit: ${postPerPage}
         filter: {
-          estado: { slug: { eq: "chiapas" } }
+          estado: { slug: { eq: "${estadoSlug}" } }
           location: { slug: {eq: "${item}" } }
         }
     ) {
@@ -320,7 +331,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   console.log('Creando páginas de Temas de Noticias')
   const resultTopics = await graphql(`
     {
-      allStrapiNoticia(filter: { estado: { Name: { eq: "Chiapas" } } }) {
+      allStrapiNoticia(filter: { estado: { slug: { eq: "${estadoSlug}" } } }) {
         distinct(field: topics___slug)
       }
     }
@@ -355,7 +366,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allStrapiNoticia(
         limit: ${postPerPage}
         filter: {
-          estado: { slug: { eq: "chiapas" } }
+          estado: { slug: { eq: "${estadoSlug}" } }
           topics: { elemMatch: { slug: { eq: "${item}" } } }
         }
     ) {
@@ -393,7 +404,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       {
         allStrapiNoticia(
-          filter: { estado: { slug: { eq: "chiapas" } } }
+          filter: { estado: { slug: { eq: "${estadoSlug}" } } }
           sort: { fields: date, order: ASC }
         ) {
           nodes {

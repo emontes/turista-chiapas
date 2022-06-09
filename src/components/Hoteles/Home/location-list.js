@@ -3,10 +3,10 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-const Lista = ({ locations }) => {
+const Lista = ({ metadata, locations }) => {
   return (
     <Wrapper>
-      <h3>Destinos con Hoteles en Chiapas</h3>
+      <h3>Destinos con Hoteles en {metadata.estado.name}</h3>
       <div className="destinos">
         {locations.map((item) => {
           console.log('El item: ', item)
@@ -29,6 +29,8 @@ const Lista = ({ locations }) => {
           )
         })}
       </div>
+      <br />
+      <p>{metadata.description}</p>
     </Wrapper>
   )
 }

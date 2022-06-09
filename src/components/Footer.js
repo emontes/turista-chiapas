@@ -6,13 +6,13 @@ import TuristaExternos from '../constants/turista_externos'
 import { Link } from 'gatsby'
 
 import SocialLinks from '../constants/social_links'
-import destacadosChiapas from '../constants/footer_des_chiapas'
+import destacados from '../constants/footer_destacados'
 import otrosDestinos from '../constants/footer_otros_destinos'
 import { BiChevronRightCircle } from 'react-icons/bi'
 
-const Footer = ({ title = 'El Turista Chiapas', linkExterno = '' }) => {
+const Footer = ({ title = 'El Turista', estado, linkExterno = '' }) => {
   const themeContext = useContext(ThemeContext)
-
+  const slugEstado = estado.slug
   return (
     <Wrapper>
       <div className="footer-1">
@@ -30,9 +30,9 @@ const Footer = ({ title = 'El Turista Chiapas', linkExterno = '' }) => {
 
         <div className="enlaces">
           <div className="foot">
-            <h4>Destacados en Chiapas</h4>
+            <h4>Destacados en {estado.name}</h4>
             <ul className="ftr-list">
-              {destacadosChiapas.map((link) => {
+              {destacados[slugEstado].map((link) => {
                 return (
                   <li key={link.id}>
                     <Link to={link.url}>
@@ -47,7 +47,7 @@ const Footer = ({ title = 'El Turista Chiapas', linkExterno = '' }) => {
           <div className="foot">
             <h4>Otros Destinos</h4>
             <ul className="ftr-list">
-              {otrosDestinos.map((link) => {
+              {otrosDestinos[slugEstado].map((link) => {
                 return (
                   <li key={link.id}>
                     <a href={link.url}>
@@ -139,6 +139,11 @@ const Wrapper = styled.footer`
 
     li {
       text-align: left;
+    }
+  }
+  a {
+    :hover {
+      color: ${(props) => props.theme.colors.primary10};
     }
   }
 

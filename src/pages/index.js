@@ -7,15 +7,14 @@ import Seo from '../components/Seo'
 import Mapa from '../components/Home/mapa'
 
 const index = ({ data }) => {
-  console.log('Data from index page -----L> ', data)
   return (
     <Layout
       heroImg={data.image.childImageSharp}
-      main="Chiapas"
-      sub="El Espíritu del Mundo Maya"
+      main={data.site.siteMetadata.estado.name}
+      sub={data.site.siteMetadata.estado.slogan}
     >
       <Seo />
-      <Mapa />
+      <Mapa metadata={data.site.siteMetadata} />
       <Noticias
         noticias={data.allStrapiNoticia.nodes}
         title="Últimas Noticias"
@@ -41,9 +40,11 @@ export const query = graphql`
 
     site {
       siteMetadata {
+        description
         estado {
           name
           slug
+          slogan
         }
       }
     }

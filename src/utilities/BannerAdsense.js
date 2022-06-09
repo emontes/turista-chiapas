@@ -6,6 +6,7 @@ class MyLeaderBoardAd extends Component {
   }
 
   render() {
+    const slot = this.props.slot ? this.props.slog : '8837254790'
     return (
       <>
         <script
@@ -17,7 +18,7 @@ class MyLeaderBoardAd extends Component {
           class="adsbygoogle"
           style={{ display: 'block' }}
           data-ad-client="ca-pub-5136877882943908"
-          data-ad-slot="8837254790"
+          data-ad-slot={slot}
           data-ad-format="auto"
           data-full-width-responsive="true"
         ></ins>

@@ -13,7 +13,7 @@ const advantages = [
     icon: <FaPiggyBank />,
     title: 'Sin cuotas ocultas',
     text:
-      'Turista Chiapas opera con y muestra el precio final de la habitación. Sin impuestos adicionales ni tarifas ocultas.',
+      'Turista opera con y muestra el precio final de la habitación. Sin impuestos adicionales ni tarifas ocultas.',
   },
 
   {

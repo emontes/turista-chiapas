@@ -73,7 +73,7 @@ const Article = ({ data, pageContext }) => {
                     dangerouslySetInnerHTML={{ __html: hometext.data.hometext }}
                   />
                 )}
-                <BannerAdsense />
+                <BannerAdsense slot="3662873871" />
                 {bodytext && (
                   <p
                     dangerouslySetInnerHTML={{ __html: bodytext.data.bodytext }}
@@ -83,7 +83,7 @@ const Article = ({ data, pageContext }) => {
             ) : (
               <>
                 <ReactMarkdown children={hometext.data.hometext} />
-                <BannerAdsense />
+                <BannerAdsense slot="3662873871" />
                 <ReactMarkdown children={bodytext.data.bodytext} />
               </>
             )}

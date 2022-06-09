@@ -16,7 +16,7 @@ const Card = ({ destino }) => {
         />
       </div>
 
-      <div className="card-title">{destino.location.name.substring(0, 13)}</div>
+      <div className="card-title">{destino.location.name}</div>
     </Wrapper>
   )
 }
@@ -24,20 +24,20 @@ const Card = ({ destino }) => {
 export default Card
 
 const Wrapper = styled(Link)`
+  width: 50%;
   position: relative;
   margin: 0.5rem 0 1rem 0;
   background-color: var(--clr-grey-3);
-  border-radius: 20px;
+  border-radius: 2px;
   box-shadow: var(--light-shadow);
   color: var(--clr-white);
   transition: var(--transition);
   display: none;
-  flex-basis: 25%;
+
   @media ${device.laptop} {
     display: block;
   }
   @media ${device.laptopL} {
-    flex-basis: 15%;
   }
   :hover {
     box-shadow: var(--dark-shadow);
@@ -61,7 +61,7 @@ const Wrapper = styled(Link)`
       right: 0;
       top: 0;
       bottom: 0;
-      width: 100%;
+      height: 20rem;
 
       :hover {
         transition: var(--transition);

@@ -11,6 +11,7 @@ const siteData = {
     estado: {
       name: 'Chiapas',
       slug: 'chiapas',
+      slogan: 'El Espíritu del Mundo Maya',
     },
   },
   googleAnalytics: {

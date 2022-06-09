@@ -6,15 +6,19 @@ import Title from './Title'
 import styled from 'styled-components'
 
 const About = (props) => {
-  const defaultImage = useStaticQuery(query)
-  let displayImage = defaultImage.image
+  const data = useStaticQuery(query)
+  let displayImage = data.image
   if (props.image) {
     displayImage = props.image
   }
 
   return (
     <Wrapper>
-      <Title title={props.title || 'El Turista Chiapas'} />
+      <Title
+        title={
+          props.title || `El Turista ${data.site.siteMetadata.estado.name}`
+        }
+      />
       <GatsbyImage
         image={getImage(displayImage.localFile)}
         className="img"
@@ -25,7 +29,7 @@ const About = (props) => {
         {props.description || (
           <span
             dangerouslySetInnerHTML={{
-              __html: 'La <b>Guía de Turismo</b> en <i>Chiapas</i>',
+              __html: `La <b>Guía de Turismo</b> en <i>${data.site.siteMetadata.estado.name}</i>`,
             }}
           />
         )}
@@ -51,9 +55,17 @@ export default About
 
 export const query = graphql`
   query {
-    image: strapiMedia(
-      name: { eq: "noticia-chiapas-traje-de-chiapaneca.png" }
-    ) {
+    site {
+      siteMetadata {
+        estado {
+          name
+          slug
+          slogan
+        }
+      }
+    }
+
+    image: strapiMedia(name: { eq: "topic-turista.jpg" }) {
       name
       localFile {
         childImageSharp {

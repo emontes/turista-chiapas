@@ -4,13 +4,13 @@ import Map from './Map'
 import OurHotelSearch from './OurHotelSearch'
 import ListaLocations from './location-list'
 
-const Hoteles = ({ locations }) => {
+const Hoteles = ({ metadata, locations }) => {
   console.log('Locations en hoteles/home/index: ', locations)
   return (
     <section>
-      <Map />
-      <ListaLocations locations={locations} />
-      <Advantages />
+      <Map metadata={metadata} />
+      <ListaLocations metadata={metadata} locations={locations} />
+      <Advantages metadata={metadata} />
 
       <OurHotelSearch />
     </section>

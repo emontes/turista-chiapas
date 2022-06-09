@@ -2,7 +2,7 @@ const siteData = {
   siteMetadata: {
     title: 'El Turista Estado de México',
     description:
-      'El Turista Estado de México cuenta con las herramientas necesarias para que los turistas puedan planear su viaje por el Estaod de México.',
+      'El Turista Estado de México cuenta con las herramientas necesarias para que los turistas puedan planear su viaje por el Estado de México.',
     titleTemplate: `%s | Turista Estado de México`,
     url: `https://edomexico.turista.com.mx`,
     siteUrl: `https://edomexico.turista.com.mx`,
@@ -11,6 +11,7 @@ const siteData = {
     estado: {
       name: 'Estado de México',
       slug: 'edomexico',
+      slogan: 'Con el mejor Estado de Ánimo',
     },
   },
   googleAnalytics: {

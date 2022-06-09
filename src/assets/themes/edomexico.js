@@ -40,7 +40,7 @@ const theme = {
     primary6: '#956060',
     primary7: '#a77777',
     primary8: '#b9acac', //este debe parecer gris por que es para los <p>
-    primary9: '#ddc1c1',
+    primary9: '#d6c493',
     primary10: '#fbeded',
   },
   images: {

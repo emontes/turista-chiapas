@@ -4,15 +4,18 @@ import FormSearchHotels from '../FormSearchHotels'
 import DestinationCard from './destination-card'
 import device from '../../../assets/themes/device'
 
-const Hoteles = ({ destino1, destino2 }) => {
+const Hoteles = ({ topDestinos }) => {
+  console.log('Top destinos en el Hero de hoteles: ', topDestinos)
   return (
     <Wrapper>
       <div className="featured">
         <FormSearchHotels />
       </div>
-
-      <DestinationCard destino={destino1} />
-      <DestinationCard destino={destino2} />
+      <div className="destinos">
+        {topDestinos.map((destino, index) => {
+          return <DestinationCard key={index} destino={destino} />
+        })}
+      </div>
     </Wrapper>
   )
 }
@@ -24,6 +27,13 @@ const Wrapper = styled.section`
   align-items: center;
   justify-content: space-around;
 
+  .destinos {
+    margin: 0 0 -13rem;
+
+    width: 50%;
+    display: flex;
+    gap: 2rem;
+  }
   .featured {
     flex-basis: 100%;
     @media ${device.laptop} {

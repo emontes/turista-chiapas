@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { useStaticQuery, graphql } from 'gatsby'
 import GlobalStyles from '../assets/themes/globalStyles'
 import Chiapas from '../assets/themes/chiapas'
 import EdoMexico from '../assets/themes/edomexico'
@@ -28,9 +29,11 @@ const Layout = ({
     setIsOpen(!isOpen)
   }
 
-  const estado = 'Chiapas'
+  const { site } = useStaticQuery(query)
+  const estado = site.siteMetadata.estado
+
   let themeSel = Chiapas
-  if (estado === 'Edom') themeSel = EdoMexico
+  if (estado.slug === 'edomexico') themeSel = EdoMexico
 
   return (
     <ThemeProvider theme={themeSel}>
@@ -55,8 +58,9 @@ const Layout = ({
       )}
 
       <Footer
-        title={seoTitle ? seoTitle : 'Turista Chiapas'}
+        title={seoTitle ? seoTitle : `Turista ${estado.name}`}
         linkExterno={linkExterno}
+        estado={estado}
       />
     </ThemeProvider>
   )
@@ -85,6 +89,19 @@ const Wrapper = styled.main`
 
       @media ${device.laptop} {
         padding: 2rem;
+      }
+    }
+  }
+`
+const query = graphql`
+  query dataLayout {
+    site {
+      siteMetadata {
+        estado {
+          name
+          slug
+          slogan
+        }
       }
     }
   }
